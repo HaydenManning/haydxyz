@@ -15,7 +15,10 @@ const {
   SESSION_SECRET,
   PORT
 } = process.env;
-const { testUrlCreation } = require(`${__dirname}/controllers/urlController`);
+const {
+  testUrlCreation,
+  getTestUrl
+} = require(`${__dirname}/controllers/urlController`);
 
 const app = express();
 
@@ -47,7 +50,9 @@ app.use(
 
 // endpoints
 
-app.get(`/api/url/test`, testUrlCreation);
+// TEST ENDPOINTS
+app.post(`/api/url/test`, testUrlCreation);
+app.get(`/api/url/test/:id`, getTestUrl);
 
 /* for production only
 app.get("*", (req, res) => {

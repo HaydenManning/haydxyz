@@ -5,7 +5,6 @@ CREATE TABLE user (
     auth_id varchar(50) NOT NULL,
     f_name varchar(40),
     l_name varchar(40),
-    -- MOVE TO CHAT TABLE display_name varchar(40),
     email varchar(60),
     orig_ip varchar(100),
     creation_date varchar(40),
@@ -30,3 +29,18 @@ CREATE TABLE url (
     orig_url text,
     author int REFERENCES user(uniq_user_id)
 );
+
+-- CREATE TABLE chat_user
+-- display_name varchar(40),
+
+
+-- CREATE TABLE chat_messages
+
+
+-- CREATE TABLE url_stats
+
+
+-- CREATE TABLE pastes (for pastebin clone)
+
+
+-- CREATE TABLE vote
