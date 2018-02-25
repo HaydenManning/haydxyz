@@ -14,7 +14,7 @@ class NewShortUrl extends Component {
   }
 
   createNewShortUrl() {
-    this.props.createNewShortUrl();
+    this.props.createNewShortUrl(this.props.newShortUrlInput);
   }
 
   render() {
@@ -26,7 +26,7 @@ class NewShortUrl extends Component {
         <button onClick={() => this.createNewShortUrl()}>CLICK ME</button>
         <h1>
           {this.props.newShortUrl !== ""
-            ? this.props.newShortUrl
+            ? `http://localhost:3002/${this.props.newShortUrl}`
             : `create a url`}
         </h1>
       </div>
