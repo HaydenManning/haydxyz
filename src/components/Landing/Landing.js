@@ -4,6 +4,9 @@ import { connect } from "react-redux";
 // prevents missing state updates
 import { withRouter } from "react-router-dom";
 
+import Header from "./../Header/Header";
+import Footer from "./../Footer/Footer";
+
 class Landing extends Component {
   componentDidMount() {
     console.log(`Ayy we mounted`);
@@ -12,7 +15,9 @@ class Landing extends Component {
   render() {
     return (
       <div>
-        <h1> Landing </h1>
+        <Header />
+        <h1> This is the Landing </h1>
+        <Footer />
       </div>
     );
   }

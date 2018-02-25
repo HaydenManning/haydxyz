@@ -6,7 +6,7 @@ import NewShortUrl from "./components/UrlShortener/NewShortUrl/NewShortUrl";
 import UrlRedirect from "./components/UrlShortener/UrlRedirect/UrlRedirect";
 
 // short url regex
-const url = /[a-zA-Z0-9]{5}/;
+// const url = /[a-zA-Z0-9]{5}/;
 
 export default (
   <Switch>
