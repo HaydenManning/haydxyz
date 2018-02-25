@@ -41,7 +41,7 @@ app.use(
     resave: false,
     saveUninitialized: false,
     cookie: {
-      maxAge: 21600000
+      maxAge: 86400000
     }
   })
 );
