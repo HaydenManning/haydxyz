@@ -4,6 +4,7 @@ const { createNewShortURL } = require(`${__dirname}/../logic/generateNewURL`);
 let testUrlCreation = (req, res) => {
   let url = createNewShortURL();
   console.log(req.body);
+  // need an if statement before creation to check db for the shorturl that was created / should the url already exist need to generate a new url by reinvoking createNewShortUrl()
   req.app
     .get("db")
     .createTestUrl(url, req.body.original)
