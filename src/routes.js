@@ -12,7 +12,7 @@ export default (
   <Switch>
     <Route exact path="/" component={Landing} />
     <Route path="/new" component={NewShortUrl} />
-    <Route
+    <Route // THIS ROUTE MUST BE ON BOTTOM
       sensitive
       path="/:shortURL"
       render={({ match }) => {
