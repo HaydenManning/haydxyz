@@ -2,15 +2,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter, Link } from "react-router-dom";
+import "./Header.css";
 
 class Header extends Component {
   render() {
     return (
       <div className="header-main">
-        <h1>THIS IS THE HEADER</h1>
-        <Link to="/new">
-          <button>Create New Short Url</button>
-        </Link>
+        <h1>hayd.xyz</h1>
+        <div className="user-avatar" />
       </div>
     );
   }

@@ -1,0 +1,14 @@
+.header-main {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: stretch;
+}
+
+.user-avatar {
+  height: 5vh;
+  width: 5vw;
+  background-color: black;
+}
