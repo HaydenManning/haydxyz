@@ -7,6 +7,7 @@ import {
   newShortUrlInputFunc,
   createNewShortUrl
 } from "./../../../ducks/reducer";
+import "./NewShortUrl.css";
 
 class NewShortUrl extends Component {
   newShortUrlInput(e) {
@@ -18,17 +19,26 @@ class NewShortUrl extends Component {
   }
 
   render() {
-    console.log(this.props.newShortUrlInput);
     return (
-      <div>
-        <h1> New Short Url </h1>
-        <input onChange={e => this.newShortUrlInput(e.target.value)} />
-        <button onClick={() => this.createNewShortUrl()}>CLICK ME</button>
-        <h1>
-          {this.props.newShortUrl !== ""
-            ? `http://localhost:3002/${this.props.newShortUrl}`
-            : `create a url`}
-        </h1>
+      <div className="new-short-url-main">
+        <div className="url-shortener">
+          <div className="short-content">
+            <h1>Simplify your link</h1>
+            <div className="url-input">
+              <input
+                id="long-input"
+                onChange={e => this.newShortUrlInput(e.target.value)}
+              />
+              <button onClick={() => this.createNewShortUrl()}>
+                SHORTEN URL
+              </button>
+            </div>
+            <p>
+              All hayd.xyz URLs and analytics are public and can be accessed by
+              anyone
+            </p>
+          </div>
+        </div>
       </div>
     );
   }
@@ -41,3 +51,7 @@ export default withRouter(
     NewShortUrl
   )
 );
+
+//{this.props.newShortUrl !== ""
+// ? `http://localhost:3002/${this.props.newShortUrl}`
+// : false}

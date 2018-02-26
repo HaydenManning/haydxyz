@@ -10,19 +10,7 @@ class Landing extends Component {
   render() {
     return (
       <div className="landing-main">
-        <div className="url-shortener">
-          <div className="short-content">
-            <h1>Simplify your link</h1>
-            <div className="url-input">
-              <input id="long-input" />
-              <button>SHORTEN URL</button>
-            </div>
-            <p>
-              All hayd.xyz URLs and analytics are public and can be accessed by
-              anyone
-            </p>
-          </div>
-        </div>
+        <h1> Landing Page </h1>
       </div>
     );
   }
