@@ -9,7 +9,6 @@ class Header extends Component {
     return (
       <div className="header-main">
         <h1>hayd.xyz</h1>
-        <div className="user-avatar" />
       </div>
     );
   }

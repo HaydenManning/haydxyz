@@ -4,6 +4,7 @@
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   grid-auto-flow: column;
+  background-color: #f4f3f4;
 }
 
 .url-shortener {
@@ -14,17 +15,35 @@
   background-color: #2f63cb;
   width: 100vw;
   color: white;
+  height: 28vh;
+  display: grid;
+}
+
+.short-content {
+  align-self: center;
+  justify-content: center;
+  display: grid;
+}
+
+.url-input {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: stretch;
 }
 
 #long-input {
   height: 5vh;
   width: 40vw;
+  font-size: 1.75rem;
 }
 
 .url-input button {
   padding: 0;
   margin-left: 1vw;
-  height: 5.7vh;
+  height: 5.5vh;
   width: 10vw;
   color: #2f63cb;
   font-size: 1rem;
