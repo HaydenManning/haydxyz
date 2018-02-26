@@ -7,7 +7,7 @@ CREATE TABLE user (
     l_name varchar(40),
     email varchar(60),
     orig_ip varchar(100),
-    creation_date varchar(40),
+    user_creation_date varchar(40),
     last_login varchar(40),
     last_login_location varchar(80),
     profile_avatar text,
@@ -27,6 +27,8 @@ CREATE TABLE url (
     uniq_id serial primary key,
     short_url varchar(8),
     orig_url text,
+    creation_date varchar(40),
+    total_url_clicks int,
     author int REFERENCES user(uniq_user_id)
 );
 
