@@ -4,12 +4,22 @@ import { connect } from "react-redux";
 import { withRouter, Link } from "react-router-dom";
 
 class UserProfile extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      userID: ""
+    };
+  }
+
   componentDidMount() {
     let uid = window.location.pathname;
     let userID = uid
       .split("")
       .slice(3)
       .join("");
+    this.setState({
+      userID
+    });
     console.log(userID);
     //axios call to get user information from db
   }
@@ -17,7 +27,7 @@ class UserProfile extends Component {
   render() {
     return (
       <div>
-        <h1> This is the User Profile</h1>
+        <h1> This is the User Profile for uniq_id {this.state.userID}</h1>
       </div>
     );
   }

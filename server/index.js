@@ -47,8 +47,60 @@ app.use(
 );
 
 // authentication
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(
+  new Auth0Strategy(
+    {
+      domain: DOMAIN,
+      clientSecret: CLIENT_SECRET,
+      clientID: CLIENT_ID,
+      scope: "openid profile",
+      callbackURL: "/api/auth"
+    },
+    (accessToken, refreshToken, extraParams, profile, done) => {
+      app
+        .get("db")
+        .getUserByAuthId(profile.id)
+        .then(response => {
+          if (!response[0]) {
+            app
+              .get("db")
+              .createUserByAuthId()
+              .then(created => done(null, created[0]));
+          } else {
+            return done(null, response[0]);
+          }
+        });
+    }
+  )
+);
+
+passport.serializeUser((user, done) => done(null, user));
+passport.deserializeUser((user, done) => done(null, user));
 
 // endpoints
+app.get(
+  "/api/auth",
+  passport.authenticate(`auth0`, {
+    successRedirect: "http://localhost:3002",
+    failureRedirect: "http://localhost:3002/logn"
+  })
+);
+
+app.get("/api/me", (req, res) => {
+  if (req.user) {
+    res.status(200).json(req.user);
+  } else {
+    res.status(400).json({ message: "User is not logged in" });
+  }
+});
+
+app.get("/api/logout", (req, res) => {
+  req.session.destroy(() => {
+    res.redirect("http://localhost:3002/");
+  });
+});
 
 // TEST ENDPOINTS
 app.post(`/api/url/test`, testUrlCreation);

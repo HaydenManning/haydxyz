@@ -16,7 +16,6 @@ class UserSettings extends Component {
     let userID = uid.split("").slice(3);
     for (let i = 0; i < 9; i++) userID.pop();
     userID = userID.join("");
-
     this.setState({
       userID
     });
