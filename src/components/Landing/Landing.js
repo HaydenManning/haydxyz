@@ -5,12 +5,18 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
 import "./Landing.css";
+import Header from "./../Header/Header";
+import Footer from "./../Footer/Footer";
 
 class Landing extends Component {
   render() {
     return (
-      <div className="landing-main">
-        <h1> Landing Page </h1>
+      <div>
+        <Header />
+        <div className="landing-main">
+          <h1> Landing Page </h1>
+        </div>
+        <Footer />
       </div>
     );
   }

@@ -2,6 +2,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
+import axios from "axios";
 
 import {
   newShortUrlInputFunc,
@@ -10,6 +11,23 @@ import {
 import "./NewShortUrl.css";
 
 class NewShortUrl extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      topTen: []
+    };
+  }
+  componentDidMount() {
+    // axios
+    //   .get("/api/url/top")
+    //   .then(response => {
+    //     this.setState({
+    //       topTen: response
+    //     });
+    //   })
+    //   .catch(console.log);
+  }
+
   newShortUrlInput(e) {
     this.props.newShortUrlInputFunc(e);
   }
@@ -39,6 +57,9 @@ class NewShortUrl extends Component {
               All hayd.xyz URLs and analytics are public and can be accessed by
               anyone
             </p>
+            {this.props.newShortUrl !== ""
+              ? `http://localhost:3002/${this.props.newShortUrl}`
+              : false}
           </div>
         </div>
         <div className="url-shortener-list">
@@ -48,13 +69,17 @@ class NewShortUrl extends Component {
             <h2 id="table-head-short">Short URL</h2>
             <h2 id="table-head-click">All Clicks</h2>
           </div>
-          <h1>
-            This will be a list of the last 10 generated url's (either for the
-            user of for the entire site) (could also do top visited links
-            instead)
-          </h1>
         </div>
-
+        {this.state.topTen !== []
+          ? this.state.topTen.map((val, i) => {
+              <div className="table-body-row">
+                <h2 id="table-body-original">{val[i].orig_url}</h2>
+                <h2 id="table-body-created">{val[i].creation_date}</h2>
+                <h2 id="table-body-short">{val[i].short_url}</h2>
+                <h2 id="table-body-click">{val[i].total_url_clicks}</h2>
+              </div>;
+            })
+          : false}
         {/* conditional rendering for the screen prompt that provides users with the new short link*/}
       </div>
     );
@@ -68,7 +93,3 @@ export default withRouter(
     NewShortUrl
   )
 );
-
-//{this.props.newShortUrl !== ""
-// ? `http://localhost:3002/${this.props.newShortUrl}`
-// : false}
