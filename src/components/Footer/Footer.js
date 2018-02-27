@@ -9,7 +9,18 @@ class Footer extends Component {
   render() {
     return (
       <div className="footer-main">
-        <h1>THIS IS THE FOOTER</h1>
+        <div className="footer-link">
+          <h1>CONTACT</h1>
+          <h1>TERMS OF SERVICE</h1>
+          <h1>THIS IS NOT A REAL COMPANY</h1>
+          <h1>PRIVACY POLICY</h1>
+        </div>
+        <div className="footer-logo">
+          <h1>hayd.xyz</h1>
+        </div>
+        <div className="footer-cc">
+          <p>2018 hayd.xyz | Handmade by Hayden Manning in Dallas</p>
+        </div>
       </div>
     );
   }
