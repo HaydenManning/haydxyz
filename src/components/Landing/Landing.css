@@ -49,6 +49,7 @@
   width: 10vw;
   color: #2f8e70;
   font-size: 1rem;
+  background-color: white;
 }
 
 .url-input button:hover {
@@ -131,4 +132,32 @@
 
 .landing-parent {
   height: 110vh;
+}
+
+.landing-cta button {
+  padding: 0;
+  margin-left: 1vw;
+  height: 5.5vh;
+  width: 10vw;
+  color: #2f8e70;
+  font-size: 1rem;
+  background-color: white;
+}
+
+.landing-cta button:hover {
+  cursor: pointer;
+}
+
+.landing-links-powered button {
+  padding: 0;
+  margin-left: 1vw;
+  height: 5.5vh;
+  width: 15vw;
+  color: #2f8e70;
+  font-size: 1rem;
+  background-color: white;
+}
+
+.landing-links-powered button:hover {
+  cursor: pointer;
 }
