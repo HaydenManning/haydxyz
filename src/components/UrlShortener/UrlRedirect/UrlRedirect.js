@@ -31,7 +31,6 @@ class UrlRedirect extends Component {
 
   componentDidMount() {
     this.originalUrl();
-    console.log(window.location);
   }
 
   render() {
