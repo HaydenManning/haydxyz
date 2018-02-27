@@ -15,3 +15,11 @@ ReactDOM.render(
   </Provider>,
   document.getElementById("root")
 );
+
+/* COLOR SCHEME
+DARKEST - #2F3637
+DARK - #256476
+MID - #2F8E70
+LIGHT - #E0DBC7
+LIGHTEST - #F6F4EE
+*/
