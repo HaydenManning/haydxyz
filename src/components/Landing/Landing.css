@@ -118,19 +118,49 @@
   color: white;
   width: 100vw;
   height: 20vh;
-  margin: 0;
+  display: grid;
+  grid-template-columns: 3;
+  grid-template-rows: 3;
+  align-self: center;
+  justify-self: center;
+}
+
+.landing-links-powered h1 {
+  align-self: center;
+  justify-self: center;
 }
 
 .landing-trustedby {
   height: 15vh;
   margin: 0;
   background-color: #f6f4ee;
+  display: grid;
+}
+
+.landing-trustedby h2 {
+  align-self: center;
+  justify-self: center;
+}
+
+.landing-trustedby p {
+  align-self: center;
+  justify-self: center;
 }
 
 .landing-some-reviews {
   background-color: #256476;
   color: white;
   height: 15vh;
+  display: grid;
+}
+
+.landing-some-reviews q {
+  align-self: center;
+  justify-self: center;
+}
+
+.landing-some-reviews p {
+  justify-self: center;
 }
 
 .landing-parent {
@@ -161,6 +191,8 @@
   color: #2f8e70;
   font-size: 1rem;
   background-color: white;
+  align-self: center;
+  justify-self: center;
 }
 
 .landing-links-powered button:hover {

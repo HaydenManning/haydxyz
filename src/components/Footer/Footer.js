@@ -14,12 +14,13 @@ class Footer extends Component {
           <h1>TERMS OF SERVICE</h1>
           <h1>THIS IS NOT A REAL COMPANY</h1>
           <h1>PRIVACY POLICY</h1>
+          <h1>DONATE</h1>
         </div>
         <div className="footer-logo">
           <h1>hayd.xyz</h1>
         </div>
         <div className="footer-cc">
-          <p>2018 hayd.xyz | Handmade by Hayden Manning in Dallas</p>
+          <p>2018 hayd.xyz | Handmade by Hayden Manning</p>
         </div>
       </div>
     );

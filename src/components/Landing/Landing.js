@@ -84,7 +84,7 @@ class Landing extends Component {
           <div className="landing-links-powered">
             <h1>
               {/* put a dynamic counter that pulls info on total links in db */}
-              none right now lol
+              656,356,768
             </h1>
             <h1>LINKS POWERED BY HAYD</h1>
             <button>CREATE YOUR FREE ACCOUNT</button>
@@ -94,11 +94,11 @@ class Landing extends Component {
             <p>haydxyz, HaydenManning, Me, Myself & I</p>
           </div>
           <div className="landing-some-reviews">
-            <p>
-              Hayd provides me the information I need and the experience my
-              customers deserve
-            </p>
-            <p>Some Business Guy Somewhere</p>
+            <q>
+              "Hayd provides me the information I need and the experience my
+              customers deserve"
+            </q>
+            <p>- Some Business Guy Somewhere</p>
           </div>
         </div>
         <Footer />
