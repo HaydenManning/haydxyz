@@ -75,7 +75,7 @@ class Landing extends Component {
                 <h2>OPTIMIZE</h2>
                 <p>
                   Whether you're at customer number one or customer 1,000,000
-                  the link give each user the right experience every time.
+                  the link gives each user the right experience every time.
                 </p>
               </div>
               <button>LEARN MORE</button>

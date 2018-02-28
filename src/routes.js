@@ -5,7 +5,7 @@ import Landing from "./components/Landing/Landing";
 import UrlRedirect from "./components/UrlShortener/UrlRedirect/UrlRedirect";
 import UserProfile from "./components/User/UserProfile/UserProfile";
 import UserSettings from "./components/User/UserSettings/UserSettings";
-import Auth from "./components/Auth/Auth";
+import Donate from "./components/Donate/Donate";
 
 // short url regex
 // const url = /[a-zA-Z0-9]{5}/;
@@ -13,9 +13,9 @@ import Auth from "./components/Auth/Auth";
 export default (
   <Switch>
     <Route exact path="/" component={Landing} />
-    <Route path="/auth" component={Auth} />
-    <Route path="/u/:id/settings" component={UserSettings} />
-    <Route path="/u/:id" component={UserProfile} />
+    <Route path="/give" component={Donate} />
+    <Route path="/user/:id/settings" component={UserSettings} />
+    <Route path="/user/:id" component={UserProfile} />
     <Route // THIS ROUTE MUST BE ON BOTTOM
       sensitive
       path="/:shortURL"
