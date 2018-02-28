@@ -15,7 +15,9 @@ class Header extends Component {
           <h1>ABOUT</h1>
         </div>
         <div className="header-right">
-          <h1>LOGIN</h1>
+          <a href={process.env.REACT_APP_LOGIN}>
+            <h1>LOGIN</h1>
+          </a>
           <button>GET ENTERPRISE</button>
         </div>
       </div>

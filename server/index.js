@@ -56,7 +56,7 @@ passport.use(
       clientSecret: CLIENT_SECRET,
       clientID: CLIENT_ID,
       scope: "openid profile",
-      callbackURL: "/api/auth"
+      callbackURL: "/auth"
     },
     (accessToken, refreshToken, extraParams, profile, done) => {
       app
@@ -81,22 +81,24 @@ passport.deserializeUser((user, done) => done(null, user));
 
 // endpoints
 app.get(
-  "/api/auth",
+  "/auth",
   passport.authenticate(`auth0`, {
-    successRedirect: "http://localhost:3002",
-    failureRedirect: "http://localhost:3002/logn"
-  })
+    failureRedirect: "http://localhost:3002/auth"
+  }),
+  (req, res) => {
+    res.redirect(`http://localhost:3002/u/${req.user.name}`);
+  }
 );
 
 app.get("/api/me", (req, res) => {
   if (req.user) {
     res.status(200).json(req.user);
   } else {
-    res.status(400).json({ message: "User is not logged in" });
+    res.status(500).json({ message: "User is not logged in" });
   }
 });
 
-app.get("/api/logout", (req, res) => {
+app.get("/logout", (req, res) => {
   req.session.destroy(() => {
     res.redirect("http://localhost:3002/");
   });
