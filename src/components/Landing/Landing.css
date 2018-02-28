@@ -108,6 +108,9 @@
   background-color: #f6f4ee;
   height: 40vh;
   width: 100vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
 }
 
 .landing-links-powered {
@@ -136,12 +139,15 @@
 
 .landing-cta button {
   padding: 0;
-  margin-left: 1vw;
   height: 5.5vh;
   width: 10vw;
   color: #2f8e70;
   font-size: 1rem;
   background-color: white;
+  grid-column-start: 2;
+  grid-row-start: 3;
+  justify-self: center;
+  align-self: center;
 }
 
 .landing-cta button:hover {
@@ -150,7 +156,6 @@
 
 .landing-links-powered button {
   padding: 0;
-  margin-left: 1vw;
   height: 5.5vh;
   width: 15vw;
   color: #2f8e70;
@@ -160,4 +165,50 @@
 
 .landing-links-powered button:hover {
   cursor: pointer;
+}
+
+.cta-head {
+  grid-column-start: 3;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  justify-self: center;
+  align-self: center;
+}
+
+.landing-cta {
+  display: grid;
+  grid-column-start: 2;
+  grid-column-end: 5;
+  grid-row-start: 3;
+  grid-row-end: 6;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-column-gap: 2vw;
+}
+
+.landing-brand {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  justify-self: center;
+  align-self: center;
+}
+
+.landing-track {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  justify-self: center;
+  align-self: center;
+}
+
+.landing-optimize {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  justify-self: center;
+  align-self: center;
 }

@@ -47,12 +47,14 @@ class Landing extends Component {
             </div>
           </div>
           <div className="unleash-the-link">
-            <h1>UNLEASH THE POWER OF YOUR LINK</h1>
-            <p>
-              The link is an invisible string that connects every customer
-              interaction to drive a seamless experience. Create a greater story
-              across ever channel and every device with hayd Enterprise.
-            </p>
+            <div className="cta-head">
+              <h1>UNLEASH THE POWER OF YOUR LINK</h1>
+              <p>
+                The link is an invisible string that connects every customer
+                interaction to drive a seamless experience. Create a greater
+                story across ever channel and every device with hayd Enterprise.
+              </p>
+            </div>
             <div className="landing-cta">
               <div className="landing-brand">
                 <h2>BRAND</h2>
@@ -69,11 +71,11 @@ class Landing extends Component {
                   location.
                 </p>
               </div>
-              <div className="landing-brand">
-                <h2>BRAND</h2>
+              <div className="landing-optimize">
+                <h2>OPTIMIZE</h2>
                 <p>
-                  Whether you're at customer number one or 1,000,000 the link
-                  give each user the right experience every time.
+                  Whether you're at customer number one or customer 1,000,000
+                  the link give each user the right experience every time.
                 </p>
               </div>
               <button>LEARN MORE</button>
