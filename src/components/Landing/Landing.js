@@ -30,7 +30,7 @@ class Landing extends Component {
                 <input
                   id="long-input"
                   onChange={e => this.newShortUrlInput(e.target.value)}
-                  placeholder="Your original URL here"
+                  placeholder="  Your URL here"
                   type="url"
                 />
                 <button onClick={() => this.createNewShortUrl()}>
