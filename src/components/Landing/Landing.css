@@ -184,6 +184,13 @@
   cursor: pointer;
 }
 
+.cta-learn {
+  grid-column-start: 2;
+  grid-row-start: 3;
+  align-self: center;
+  justify-self: center;
+}
+
 .landing-links-powered button {
   padding: 0;
   height: 5.5vh;

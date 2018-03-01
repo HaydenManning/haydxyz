@@ -10,17 +10,31 @@ class Footer extends Component {
     return (
       <div className="footer-main">
         <div className="footer-link">
-          <h1>CONTACT</h1>
-          <h1>TERMS OF SERVICE</h1>
-          <h1>THIS IS NOT A REAL COMPANY</h1>
-          <h1>PRIVACY POLICY</h1>
-          <h1>DONATE</h1>
+          <Link to="/contact">
+            <h1>CONTACT</h1>
+          </Link>
+          <Link to="/tos">
+            <h1>TERMS OF SERVICE</h1>
+          </Link>
+          <Link to="/disclaimer">
+            <h1>THIS IS NOT A REAL COMPANY</h1>
+          </Link>
+          <Link to="/privacy-policy">
+            <h1>PRIVACY POLICY</h1>
+          </Link>
+          <Link to="/give">
+            <h1>DONATE</h1>
+          </Link>
         </div>
         <div className="footer-logo">
-          <h1>hayd.xyz</h1>
+          <Link to="/">
+            <h1>hayd.xyz</h1>
+          </Link>
         </div>
         <div className="footer-cc">
-          <p>2018 hayd.xyz | Handmade by Hayden Manning</p>
+          <a href="https://github.com/HaydenManning/haydxyz">
+            <p>2018 hayd.xyz | Handmade by Hayden Manning</p>
+          </a>
         </div>
       </div>
     );

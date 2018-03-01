@@ -1,7 +1,7 @@
 // Landing Page
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 
 import "./Landing.css";
 import Header from "./../Header/Header";
@@ -78,7 +78,11 @@ class Landing extends Component {
                   the link gives each user the right experience every time.
                 </p>
               </div>
-              <button>LEARN MORE</button>
+              <div className="cta-learn">
+                <Link to="/enterprise">
+                  <button>LEARN MORE</button>
+                </Link>
+              </div>
             </div>
           </div>
           <div className="landing-links-powered">
@@ -87,7 +91,9 @@ class Landing extends Component {
               656,356,768
             </h1>
             <h1>LINKS POWERED BY HAYD</h1>
-            <button>CREATE YOUR FREE ACCOUNT</button>
+            <a href={process.env.REACT_APP_LOGIN}>
+              <button>CREATE YOUR FREE ACCOUNT</button>
+            </a>
           </div>
           <div className="landing-trustedby">
             <h2>TRUSTED BY THE SMARTEST BRANDS</h2>
