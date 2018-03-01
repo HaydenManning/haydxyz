@@ -59,6 +59,7 @@ passport.use(
       callbackURL: "/auth"
     },
     (accessToken, refreshToken, extraParams, profile, done) => {
+      console.log(profile);
       app
         .get("db")
         .getUserByAuthId(profile.id)
@@ -66,7 +67,7 @@ passport.use(
           if (!response[0]) {
             app
               .get("db")
-              .createUserByAuthId()
+              .createUserByAuthId(profile.id)
               .then(created => done(null, created[0]));
           } else {
             return done(null, response[0]);
@@ -86,11 +87,12 @@ app.get(
     failureRedirect: "http://localhost:3002/auth"
   }),
   (req, res) => {
-    res.redirect(`http://localhost:3002/u/${req.user.name}`);
+    res.redirect(`http://localhost:3002/u/${req.user.auth_id}`);
   }
 );
 
 app.get("/api/me", (req, res) => {
+  console.log(req);
   if (req.user) {
     res.status(200).json(req.user);
   } else {
