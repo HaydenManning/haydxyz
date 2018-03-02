@@ -1,4 +1,6 @@
 // URL Generation Algorithm
+
+// DEPRECATED
 const base58 = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz";
 const base58Array = [
   "1",
