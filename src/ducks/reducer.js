@@ -2,7 +2,7 @@ import axios from "axios";
 
 // INITIAL STATE
 const initialState = {
-  user: {},
+  user: [],
   newShortUrlInput: "",
   newShortUrl: ""
 };
@@ -10,6 +10,7 @@ const initialState = {
 // CONST
 const NEW_SHORT_URL_INPUT = "NEW_SHORT_URL_INPUT";
 const NEW_SHORT_URL_CREATION = "NEW_SHORT_URL_CREATION";
+const GET_USER = "GET_USER";
 
 // ACTION CREATORS
 export function newShortUrlInputFunc(e) {
@@ -33,18 +34,28 @@ export function createNewShortUrl(original) {
   };
 }
 
+export function getUser() {
+  return {
+    type: GET_USER,
+    payload: axios
+      .request({ url: "/api/me" })
+      .then(res => res.data)
+      .catch(err => err.message)
+  };
+}
+
 // EXPORT DEFAULT
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case NEW_SHORT_URL_INPUT:
       return Object.assign({}, state, { newShortUrlInput: action.payload });
 
-    case `${NEW_SHORT_URL_CREATION}_PENDING`:
-      return;
     case `${NEW_SHORT_URL_CREATION}_FULFILLED`:
       return Object.assign({}, state, { newShortUrl: action.payload });
-    case `${NEW_SHORT_URL_CREATION}_REJECTED`:
-      return;
+
+    case `${GET_USER}_FULFILLED`:
+      console.log(action.payload);
+      return Object.assign({}, state, { user: action.payload });
 
     default:
       return state;

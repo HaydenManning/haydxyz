@@ -2,7 +2,7 @@
 base58 = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz";
 */
 
-const base58 = "gCcWTpD4EwmGoBjqkfbaszAMrFe3PhKLVXxdQY96iR5t1SUNnv7Jy8ZHu2";
+const base58 = "gC4cWTpDEwmGoBjqkfbaszAMrFe3PhKLVXxdQY96iR5t1SUNnv7Jy8ZHu2";
 
 // Takes a base10 input and turns it into a base58 output
 const numToStr = num => {

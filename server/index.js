@@ -65,10 +65,11 @@ passport.use(
         .getUserByAuthId(profile.id)
         .then(response => {
           if (!response[0]) {
-            app
-              .get("db")
-              .createUserByAuthId(profile.id)
-              .then(created => done(null, created[0]));
+            // app
+            //   .get("db")
+            //   .createUserByAuthId(profile.id)
+            //   .then(created => done(null, created[0]));
+            return "User does not have Permission";
           } else {
             return done(null, response[0]);
           }
@@ -87,7 +88,7 @@ app.get(
     failureRedirect: "http://localhost:3002/auth"
   }),
   (req, res) => {
-    res.redirect(`http://localhost:3002/u/${req.user.auth_id}`);
+    res.redirect(`http://localhost:3002/`);
   }
 );
 
