@@ -46,6 +46,7 @@ app.use(
   })
 );
 
+/* REWRITE Auth0Strategy */
 // authentication
 app.use(passport.initialize());
 app.use(passport.session());

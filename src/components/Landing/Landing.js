@@ -37,9 +37,9 @@ class Landing extends Component {
                   SHORTEN URL
                 </button>
               </div>
-              <p>All hayd.xyz URLs are public and can be accessed by anyone</p>
+              <p>All hdn.mx URLs are public and can be accessed by anyone</p>
               {this.props.newShortUrl !== ""
-                ? `http://localhost:3002/${this.props.newShortUrl}`
+                ? `http://hdn.mx/${this.props.newShortUrl}`
                 : false}
             </div>
           </div>
