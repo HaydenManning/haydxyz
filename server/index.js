@@ -108,6 +108,24 @@ app.get("/logout", (req, res) => {
   });
 });
 
+/* CREATE THESE
+app.get(`api/url/:id`, getShortUrl);
+app.get(`/api/url/`, getAllUrl);
+app.get(`/api/user/:id`, getUserById);
+app.get(`/api/user/`, getAllUsers);
+app.post(`/api/url`, createNewShortUrl);
+app.post(`/api/user`, createNewUser);
+app.delete(`/api/url/:id`, deleteShortUrl);
+app.delete(`/api/user/:id`, deleteUser);
+app.put(`/api/user/:id`, updateUserFirstName);
+app.put(`/api/user/:id`, updateUserLastName);
+app.put(`/api/user/permissions/:id`, updateUserRole);
+app.put(`/api/user/:id`, updateUserEmail);
+AUTH
+AUTH LOGOUT
+AUTH /ME
+*/
+
 // TEST ENDPOINTS
 app.post(`/api/url/test`, testUrlCreation);
 app.get(`/api/url/test/:id`, getTestUrl);
