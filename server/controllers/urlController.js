@@ -62,6 +62,8 @@ let deleteShortUrl = (req, res) => {
     });
 };
 
+// TOP 10/25/50/100/250/500 Short Urls sorted by clicks || creation date
+
 module.exports = {
   createShortUrl,
   getShortUrl,

@@ -1,1 +1,0 @@
-INSERT INTO test_user (auth_id) VALUES ($1);
