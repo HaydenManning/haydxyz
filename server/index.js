@@ -16,9 +16,12 @@ const {
   PORT
 } = process.env;
 const {
-  testUrlCreation,
-  getTestUrl
+  createShortUrl,
+  getShortUrl,
+  getAllUrl,
+  deleteShortUrl
 } = require(`${__dirname}/controllers/urlController`);
+const a = require(`${__dirname}/controllers/userController`);
 
 const app = express();
 
@@ -113,6 +116,7 @@ app.get(`api/url/:id`, getShortUrl);
 app.get(`/api/url/`, getAllUrl);
 app.post(`/api/url`, createNewShortUrl);
 app.delete(`/api/url/:id`, deleteShortUrl);
+
 app.get(`/api/user/:id`, getUserById);
 app.get(`/api/user/`, getAllUsers);
 app.post(`/api/user`, createNewUser);
@@ -121,6 +125,7 @@ app.put(`/api/user/:id`, updateUserFirstName);
 app.put(`/api/user/:id`, updateUserLastName);
 app.put(`/api/user/permissions/:id`, updateUserRole);
 app.put(`/api/user/:id`, updateUserEmail);
+
 AUTH
 AUTH LOGOUT
 AUTH /ME

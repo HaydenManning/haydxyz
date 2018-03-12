@@ -1,0 +1,1 @@
+DELETE FROM url WHERE short_url = $1;
