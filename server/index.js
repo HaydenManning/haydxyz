@@ -34,7 +34,6 @@ const {
 
 const app = express();
 
-// database connection
 massive(CONNECTION_STRING)
   .then(db => {
     app.set("db", db);
@@ -46,7 +45,6 @@ app.use(cors());
 // serving production files
 // app.use(express.static(`${__dirname}/../build/`));
 
-// sessions
 app.use(
   session({
     secret: SESSION_SECRET,
@@ -59,7 +57,6 @@ app.use(
 );
 
 /* REWRITE Auth0Strategy */
-// authentication
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(
@@ -78,10 +75,10 @@ passport.use(
         .getUserByAuthId(profile.id)
         .then(response => {
           if (!response[0]) {
-            // app
-            //   .get("db")
-            //   .createUserByAuthId(profile.id)
-            //   .then(created => done(null, created[0]));
+            app
+              .get("db")
+              .createUserByAuthId(profile.id)
+              .then(created => done(null, created[0]));
             return "User does not have Permission";
           } else {
             return done(null, response[0]);
@@ -118,7 +115,7 @@ app.get("/logout", (req, res) => {
 
 app.get(`api/url/:id`, getShortUrl);
 app.get(`/api/url/`, getAllUrl);
-app.post(`/api/url`, createNewShortUrl);
+app.post(`/api/url`, createShortUrl);
 app.delete(`/api/url/:id`, deleteShortUrl);
 
 app.get(`/api/user/:id`, getUserByAuthId);
