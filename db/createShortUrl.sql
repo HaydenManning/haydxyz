@@ -1,0 +1,1 @@
+INSERT INTO url (short_url, orig_url) VALUES ($1, $2);

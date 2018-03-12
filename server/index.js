@@ -111,11 +111,11 @@ app.get("/logout", (req, res) => {
 /* CREATE THESE
 app.get(`api/url/:id`, getShortUrl);
 app.get(`/api/url/`, getAllUrl);
+app.post(`/api/url`, createNewShortUrl);
+app.delete(`/api/url/:id`, deleteShortUrl);
 app.get(`/api/user/:id`, getUserById);
 app.get(`/api/user/`, getAllUsers);
-app.post(`/api/url`, createNewShortUrl);
 app.post(`/api/user`, createNewUser);
-app.delete(`/api/url/:id`, deleteShortUrl);
 app.delete(`/api/user/:id`, deleteUser);
 app.put(`/api/user/:id`, updateUserFirstName);
 app.put(`/api/user/:id`, updateUserLastName);
