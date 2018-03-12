@@ -1,0 +1,1 @@
+INSERT INTO users (f_name) VALUES ($1);

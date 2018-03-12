@@ -24,7 +24,7 @@ CREATE TABLE user (
 );
 
 CREATE TABLE users (
-   uniq_user_id serial primary key,
+    uniq_user_id serial primary key,
     auth_id varchar(50) NOT NULL,
     f_name varchar(40),
     l_name varchar(40),

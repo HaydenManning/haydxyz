@@ -1,0 +1,1 @@
+INSERT INTO users (user_role) VALUES ($1);

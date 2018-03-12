@@ -21,7 +21,16 @@ const {
   getAllUrl,
   deleteShortUrl
 } = require(`${__dirname}/controllers/urlController`);
-const a = require(`${__dirname}/controllers/userController`);
+const {
+  getUserByAuthId,
+  getAllUsers,
+  createNewUser,
+  deleteUser,
+  updateUserFirstName,
+  updateUserLastName,
+  updateUserRole,
+  updateUserEmail
+} = require(`${__dirname}/controllers/userController`);
 
 const app = express();
 
@@ -81,11 +90,9 @@ passport.use(
     }
   )
 );
-
 passport.serializeUser((user, done) => done(null, user));
 passport.deserializeUser((user, done) => done(null, user));
 
-// endpoints
 app.get(
   "/auth",
   passport.authenticate(`auth0`, {
@@ -95,7 +102,6 @@ app.get(
     res.redirect(`http://localhost:3002/`);
   }
 );
-
 app.get("/api/me", (req, res) => {
   console.log(req);
   if (req.user) {
@@ -104,20 +110,18 @@ app.get("/api/me", (req, res) => {
     res.status(500).json({ message: "User is not logged in" });
   }
 });
-
 app.get("/logout", (req, res) => {
   req.session.destroy(() => {
     res.redirect("http://localhost:3002/");
   });
 });
 
-/* CREATE THESE
 app.get(`api/url/:id`, getShortUrl);
 app.get(`/api/url/`, getAllUrl);
 app.post(`/api/url`, createNewShortUrl);
 app.delete(`/api/url/:id`, deleteShortUrl);
 
-app.get(`/api/user/:id`, getUserById);
+app.get(`/api/user/:id`, getUserByAuthId);
 app.get(`/api/user/`, getAllUsers);
 app.post(`/api/user`, createNewUser);
 app.delete(`/api/user/:id`, deleteUser);
@@ -125,15 +129,6 @@ app.put(`/api/user/:id`, updateUserFirstName);
 app.put(`/api/user/:id`, updateUserLastName);
 app.put(`/api/user/permissions/:id`, updateUserRole);
 app.put(`/api/user/:id`, updateUserEmail);
-
-AUTH
-AUTH LOGOUT
-AUTH /ME
-*/
-
-// TEST ENDPOINTS
-app.post(`/api/url/test`, testUrlCreation);
-app.get(`/api/url/test/:id`, getTestUrl);
 
 /* for production only
 app.get("*", (req, res) => {
