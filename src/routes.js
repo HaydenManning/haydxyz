@@ -1,44 +1,29 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 
-import Landing from "./components/Landing/Landing";
+import Homepage from "./pages/Homepage";
 import UrlRedirect from "./components/UrlShortener/UrlRedirect/UrlRedirect";
-import Donate from "./components/Donate/Donate";
-import FourOhFour from "./components/FourOhFour/FourOhFour";
-import About from "./components/About/About";
-import AdminDashboard from "./components/Admin/AdminDashboard/AdminDashboard";
-import Admin from "./components/Admin/Admin";
-import AdminEdit from "./components/Admin/AdminEdit/AdminEdit";
-import AdminSettings from "./components/Admin/AdminSettings/AdminSettings";
-import AdminUserManagement from "./components/Admin/AdminUserManagement/AdminUserManagement";
-import Contact from "./components/Contact/Contact";
-import Social from "./components/Social/Social";
-import UserProfile from "./components/User/UserProfile/UserProfile";
-import UserSettings from "./components/User/UserSettings/UserSettings";
-
-// short url regex
-// const url = /[a-zA-Z0-9]{5}/;
+import Donate from "./pages/Donate";
+import UserSettings from "./pages/UserSettings";
+import Login from "./pages/Login";
+import TermsOfService from "./pages/TermsOfService";
+import Stats from "./pages/Stats";
+import Four04 from "./pages/Four04";
 
 export default (
   <Switch>
-    <Route exact path="/" component={Landing} />
+    <Route exact path="/" component={Homepage} />
+    <Route path="/u/login" component={Login} />
+    <Route path="/i/tos" component={TermsOfService} />
     <Route path="/i/give" component={Donate} />
-    <Route path="/i/about" component={About} />
-    <Route path="/i/contact" component={Contact} />
-    <Route path="/i/social" component={Social} />
-    <Route path="/a/admin" component={Admin} />
-    <Route path="/a/dashboard" component={AdminDashboard} />
-    <Route path="/a/settings" component={AdminSettings} />
-    <Route path="/a/edit" component={AdminEdit} />
-    <Route path="/a/usermanagement" component={AdminUserManagement} />
-    <Route path="/u/profile" component={UserProfile} />
     <Route path="/u/settings" component={UserSettings} />
+    <Route path="/s/:id" component={Stats} />
     <Route // THIS ROUTE MUST BE ON BOTTOM
       sensitive
       path="/:shortURL"
       render={({ match }) => {
         if (!/^[a-zA-Z0-9]{3-8}$/.test(match.params.shortURL)) {
-          return <FourOhFour />;
+          return <Four04 />;
         }
         return <UrlRedirect />;
       }}
