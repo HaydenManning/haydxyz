@@ -2,7 +2,7 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 
 import Homepage from "./pages/Homepage";
-import UrlRedirect from "./components/UrlShortener/UrlRedirect/UrlRedirect";
+import UrlRedirect from "./components/UrlRedirect/UrlRedirect";
 import Donate from "./pages/Donate";
 import UserSettings from "./pages/UserSettings";
 import Login from "./pages/Login";
