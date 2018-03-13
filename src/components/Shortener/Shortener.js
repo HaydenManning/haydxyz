@@ -18,7 +18,11 @@ class Shortener extends Component {
       <div className="shortener">
         <div className="url-shortener">
           <div className="short-content">
-            <h1>SIMPLIFY</h1>
+            {this.props.newShortUrl !== "" ? (
+              `http://hdn.mx/${this.props.newShortUrl}`
+            ) : (
+              <h1>SIMPLIFY</h1>
+            )}
             <div className="url-input">
               <input
                 id="long-input"
@@ -31,9 +35,6 @@ class Shortener extends Component {
               </button>
             </div>
             <p>All hdn.mx URLs are public and can be accessed by anyone</p>
-            {this.props.newShortUrl !== ""
-              ? `http://hdn.mx/${this.props.newShortUrl}`
-              : false}
           </div>
         </div>
       </div>
@@ -43,7 +44,9 @@ class Shortener extends Component {
 
 const mapStateToProps = state => state;
 
-export default withRouter(mapStateToProps, {
-  originalUrlInputFunc,
-  createNewShort
-})(Shortener);
+export default withRouter(
+  connect(mapStateToProps, {
+    originalUrlInputFunc,
+    createNewShort
+  })(Shortener)
+);
