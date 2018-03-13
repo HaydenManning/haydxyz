@@ -10,7 +10,7 @@ class Shortener extends Component {
   }
   createNewShort() {
     this.props.createNewShort(this.props.originalUrlInput);
-    document.getElementById("url-input").value = "";
+    document.getElementById("long-input").value = "";
   }
 
   render() {
@@ -30,9 +30,7 @@ class Shortener extends Component {
                 placeholder="Paste your URL"
                 type="url"
               />
-              <button onClick={() => this.createNewShortUrl()}>
-                SHORTEN URL
-              </button>
+              <button onClick={() => this.createNewShort()}>SHORTEN URL</button>
             </div>
             <p>All hdn.mx URLs are public and can be accessed by anyone</p>
           </div>

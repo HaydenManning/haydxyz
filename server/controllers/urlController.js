@@ -1,28 +1,24 @@
 const { numToStr, strToNum } = require(`${__dirname}/../logic/baseEncoding`);
-const newID = null;
+let newID = null;
 
-dbID = () => {
+let createShortUrl = (req, res) => {
   req.app
     .get("db")
     .getBaseTen()
-    .then(response => {
-      newID = response + 1;
-      return newID;
-    });
-};
-
-let createShortUrl = (req, res) => {
-  dbID();
-  let url = numToStr(newID);
-  req.app
-    .get("db")
-    .createShortUrl(url, req.body.original)
-    .then(response => {
-      res.status(200).json({ response, short_url: url });
-    })
-    .catch(err => {
-      console.log(`Failed to create new short url`);
-      res.status(500).json(err);
+    .then(id => {
+      let base10 = id[0].uniq_id || 0;
+      let url = numToStr(base10 + 1);
+      req.app
+        .get("db")
+        .createShortUrl(url, req.body.original)
+        .then(response => {
+          console.log(url, "created");
+          res.status(200).json({ response, short_url: url });
+        })
+        .catch(err => {
+          console.log(`Failed to create new short url`);
+          res.status(500).json(err);
+        });
     });
 };
 

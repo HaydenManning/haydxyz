@@ -25,7 +25,7 @@ export function createNewShort(original) {
   return {
     type: NEW_SHORT_URL_CREATION,
     payload: axios
-      .post("/api/url/test", { original })
+      .post("/api/url", { original })
       .then(response => {
         console.log(response.data.short_url, "NEW RESPONSE");
         return response.data.short_url;
@@ -51,7 +51,7 @@ export default function reducer(state = initialState, action) {
       return Object.assign({}, state, { originalUrlInput: action.payload });
 
     case `${NEW_SHORT_URL_CREATION}_FULFILLED`:
-      return Object.assign({}, state, { NewShort: action.payload });
+      return Object.assign({}, state, { newShortUrl: action.payload });
 
     case `${GET_USER}_FULFILLED`:
       console.log(action.payload);
