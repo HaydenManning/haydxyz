@@ -12,6 +12,16 @@ export default (
   <Switch>
     <Route exact path="/" component={Landing} />
     <Route path="/i/give" component={Donate} />
+    <Route path="/i/about" component={About} />
+    <Route path="/i/contact" component={Contact} />
+    <Route path="/i/social" component={Social} />
+    <Route path="/a/admin" component={Admin} />
+    <Route path="/a/dashboard" component={AdminDashboard} />
+    <Route path="/a/settings" component={AdminSettings} />
+    <Route path="/a/edit" component={AdminEdit} />
+    <Route path="/a/usermanagement" component={AdminUserManagement} />
+    <Route path="/u/profile" component={UserProfile} />
+    <Route path="/u/settings" component={UserSettings} />
     <Route // THIS ROUTE MUST BE ON BOTTOM
       sensitive
       path="/:shortURL"
