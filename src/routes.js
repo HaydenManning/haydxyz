@@ -4,6 +4,17 @@ import { Switch, Route } from "react-router-dom";
 import Landing from "./components/Landing/Landing";
 import UrlRedirect from "./components/UrlShortener/UrlRedirect/UrlRedirect";
 import Donate from "./components/Donate/Donate";
+import FourOhFour from "./components/FourOhFour/FourOhFour";
+import About from "./components/About/About";
+import AdminDashboard from "./components/Admin/AdminDashboard/AdminDashboard";
+import Admin from "./components/Admin/Admin";
+import AdminEdit from "./components/Admin/AdminEdit/AdminEdit";
+import AdminSettings from "./components/Admin/AdminSettings/AdminSettings";
+import AdminUserManagement from "./components/Admin/AdminUserManagement/AdminUserManagement";
+import Contact from "./components/Contact/Contact";
+import Social from "./components/Social/Social";
+import UserProfile from "./components/User/UserProfile/UserProfile";
+import UserSettings from "./components/User/UserSettings/UserSettings";
 
 // short url regex
 // const url = /[a-zA-Z0-9]{5}/;
@@ -27,7 +38,7 @@ export default (
       path="/:shortURL"
       render={({ match }) => {
         if (!/^[a-zA-Z0-9]{3-8}$/.test(match.params.shortURL)) {
-          return <h1>404 Error</h1>;
+          return <FourOhFour />;
         }
         return <UrlRedirect />;
       }}
