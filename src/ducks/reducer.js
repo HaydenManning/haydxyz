@@ -4,7 +4,12 @@ import axios from "axios";
 const initialState = {
   user: [],
   originalUrlInput: "",
-  newShort: ""
+  newShort: "",
+  f_name: "",
+  l_name: "",
+  email: "",
+  auth_id: "",
+  auth_status: false
 };
 
 // CONST

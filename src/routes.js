@@ -22,7 +22,7 @@ export default (
       sensitive
       path="/:shortURL"
       render={({ match }) => {
-        if (!/^[a-zA-Z0-9]{3-8}$/.test(match.params.shortURL)) {
+        if (!/^[a-zA-Z0-9]{2-10}$/.test(match.params.shortURL)) {
           return <Four04 />;
         }
         return <UrlRedirect />;
