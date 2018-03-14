@@ -39,18 +39,3 @@ CREATE TABLE url (
     total_url_clicks int,
     author int REFERENCES users(uniq_user_id)
 );
-
--- CREATE TABLE chat_user
--- display_name varchar(40),
-
-
--- CREATE TABLE chat_messages
-
-
--- CREATE TABLE url_stats
-
-
--- CREATE TABLE pastes (for pastebin clone)
-
-
--- CREATE TABLE vote
