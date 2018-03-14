@@ -4,7 +4,7 @@ import axios from "axios";
 const initialState = {
   user: [],
   originalUrlInput: "",
-  NewShort: ""
+  newShort: ""
 };
 
 // CONST
@@ -51,7 +51,7 @@ export default function reducer(state = initialState, action) {
       return Object.assign({}, state, { originalUrlInput: action.payload });
 
     case `${NEW_SHORT_URL_CREATION}_FULFILLED`:
-      return Object.assign({}, state, { newShortUrl: action.payload });
+      return Object.assign({}, state, { newShort: action.payload });
 
     case `${GET_USER}_FULFILLED`:
       console.log(action.payload);

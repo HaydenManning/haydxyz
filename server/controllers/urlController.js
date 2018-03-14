@@ -1,5 +1,4 @@
 const { numToStr, strToNum } = require(`${__dirname}/../logic/baseEncoding`);
-let newID = null;
 
 let createShortUrl = (req, res) => {
   req.app

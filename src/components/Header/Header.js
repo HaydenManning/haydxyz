@@ -15,6 +15,9 @@ class Header extends Component {
           <a href="https://github.com/HaydenManning/hdnmx-url-shortener">
             <h1>GitHub</h1>
           </a>
+          <Link to="/i/report">
+            <h1>Report</h1>
+          </Link>
         </div>
         {/* auth_status needs to be created */}
         {this.props.auth_status !== true ? (

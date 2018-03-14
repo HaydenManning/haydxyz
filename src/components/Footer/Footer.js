@@ -14,7 +14,13 @@ class Footer extends Component {
             Hayden Manning
           </a>{" "}
           | <a href="https://github.com/HaydenManning">GitHub</a> |{" "}
-          <Link to="/i/tos">Terms of Service</Link>
+          <Link to="/i/tos">Terms of Service</Link> |{" "}
+          <Link to="/i/report">
+            <h1>Report</h1>
+          </Link>
+        </p>
+        <p className="disclaimer">
+          All hdn.mx URLs are public and can be accessed by anyone
         </p>
       </div>
     );

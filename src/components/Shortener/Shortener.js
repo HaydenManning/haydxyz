@@ -18,10 +18,10 @@ class Shortener extends Component {
       <div className="shortener">
         <div className="url-shortener">
           <div className="short-content">
-            {this.props.newShortUrl !== "" ? (
+            {this.props.newShort !== "" ? (
               `http://hdn.mx/${this.props.newShortUrl}`
             ) : (
-              <h1>SIMPLIFY</h1>
+              <h1>HDN your links</h1>
             )}
             <div className="url-input">
               <input
