@@ -5,9 +5,31 @@
   opacity: 1;
   height: 4vh;
 }
+@media screen and (min-width: 1175px) {
+  .header-main {
+    margin: 0 auto;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    width: 1175px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    align-content: stretch;
+  }
 
-.header-main {
-  padding-top: 1vh;
-  padding-bottom: 1vh;
-  width: 100vw;
+  .header-left {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: stretch;
+  }
+
+  .header-left h1 {
+    margin-left: 1vw;
+    margin-right: 1vw;
+  }
 }

@@ -56,6 +56,7 @@ export default function reducer(state = initialState, action) {
       return Object.assign({}, state, { originalUrlInput: action.payload });
 
     case `${NEW_SHORT_URL_CREATION}_FULFILLED`:
+      console.log(action.payload, "PAYLOAD");
       return Object.assign({}, state, { newShort: action.payload });
 
     case `${GET_USER}_FULFILLED`:
