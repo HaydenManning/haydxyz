@@ -19,7 +19,6 @@ class Header extends Component {
             <h1>Report</h1>
           </Link>
         </div>
-        {/* auth_status needs to be created */}
         {this.props.auth_status !== true ? (
           <div className="header-right">
             <button>Login / Signup</button>
