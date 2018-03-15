@@ -1,0 +1,39 @@
+@media screen and (min-width: 1200px) {
+  .features {
+    padding-top: 10vh;
+    padding-bottom: 15vh;
+    width: 100vw;
+    height: 250px;
+    background-color: #eaeaea;
+  }
+
+  .features h1 {
+    font-size: 2em;
+    font-weight: 300;
+    margin-bottom: 75px;
+  }
+
+  .l2r-features {
+    margin: 0 auto;
+    width: 1175px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    align-content: stretch;
+  }
+
+  .feature i {
+    margin-bottom: 2.5vh;
+    color: #0598ec;
+  }
+
+  .feature h2 {
+    margin-bottom: 2.5vh;
+  }
+
+  .feature p {
+    margin-bottom: 2.5vh;
+  }
+}

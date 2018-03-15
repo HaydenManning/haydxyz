@@ -37,5 +37,6 @@ CREATE TABLE url (
     short_url varchar(8),
     orig_url text,
     total_url_clicks int,
-    author int REFERENCES users(uniq_user_id)
+    author int REFERENCES users(uniq_user_id),
+    created date
 );

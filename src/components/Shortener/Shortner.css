@@ -1,0 +1,24 @@
+@media screen and (min-width: 1200px) {
+  .url-input input {
+    display: inline-block;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    padding: 10px 20px;
+    overflow: scroll;
+    border: 1px solid #b7b7b7;
+    -webkit-border-radius: 5em;
+    border-radius: 5em;
+    width: 60vw;
+  }
+  .shortener {
+    width: 100%;
+    margin-top: 5vh;
+    margin-bottom: 20vh;
+  }
+  .short-title h1 {
+    margin-bottom: 5vh;
+    font-size: 3rem;
+    font-weight: 300;
+  }
+}

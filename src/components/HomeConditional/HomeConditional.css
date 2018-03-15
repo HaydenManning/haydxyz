@@ -1,0 +1,36 @@
+@media screen and (min-width: 1200px) {
+  .conditional {
+    margin: 0 auto;
+    width: 1175px;
+  }
+
+  .not-signed-in {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    align-content: stretch;
+    height: 500px;
+  }
+
+  .nsi-cta img {
+    height: 500px;
+    width: 750px;
+  }
+
+  .nsi-text {
+    width: 400px;
+    font-size: 1.8em;
+    text-align: left;
+    font-weight: 300;
+  }
+
+  .nsi-text h1 {
+    font-weight: 400;
+  }
+
+  .nsi-text button {
+    margin-top: 5vh;
+  }
+}
