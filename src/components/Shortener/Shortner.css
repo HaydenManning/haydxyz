@@ -22,6 +22,16 @@
     font-size: 3rem;
     font-weight: 100;
   }
+
+  .url-input {
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: stretch;
+  }
   input[type="url"]::-webkit-input-placeholder {
     font-size: 1.2em;
   }
@@ -39,5 +49,9 @@
   }
   .url-input i {
     color: #227df6;
+    margin-left: 1.5vw;
+  }
+  .url-input i:hover {
+    cursor: pointer;
   }
 }
