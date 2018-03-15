@@ -1,0 +1,19 @@
+@media screen and (min-width: 1200px) {
+  .report h2 {
+    font-size: 2em;
+    font-weight: 400;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+  }
+
+  .report p {
+    font-size: 1.2em;
+    font-weight: 300;
+    margin-bottom: 5vh;
+  }
+
+  .report email {
+    font-size: 1.2em;
+    font-weight: 300;
+  }
+}

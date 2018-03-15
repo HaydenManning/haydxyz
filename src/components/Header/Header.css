@@ -28,10 +28,16 @@
   }
 
   .header-left h1 {
+    padding: 0 auto;
     margin-left: 1vw;
     margin-right: 1vw;
     color: black;
     font-weight: 400;
+  }
+
+  #logo {
+    font-weight: 500;
+    font-size: 1.4em;
   }
 
   #login-signup-btn {

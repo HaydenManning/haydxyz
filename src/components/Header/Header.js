@@ -10,7 +10,7 @@ class Header extends Component {
       <div className="header-main">
         <div className="header-left">
           <Link to="/">
-            <h1>HDN.MX</h1>
+            <h1 id="logo">HDN.MX</h1>
           </Link>
           <a href="https://github.com/HaydenManning/hdnmx-url-shortener">
             <h1>GitHub</h1>

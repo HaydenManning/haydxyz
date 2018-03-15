@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import "./Report.css";
+
 export default class Report extends Component {
   render() {
     return (

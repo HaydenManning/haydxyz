@@ -9,7 +9,7 @@ import Login from "./pages/Login";
 import TermsOfService from "./pages/TermsOfService";
 import Stats from "./pages/Stats";
 import Four04 from "./pages/Four04";
-import Report from "./pages/Report";
+import Reports from "./pages/Report";
 
 export default (
   <Switch>
@@ -19,7 +19,7 @@ export default (
     <Route path="/i/give" component={Donate} />
     <Route path="/u/settings" component={UserSettings} />
     <Route path="/s/:id" component={Stats} />
-    <Route path="/i/report" component={Report} />
+    <Route path="/i/report" component={Reports} />
     <Route // THIS ROUTE MUST BE ON BOTTOM
       sensitive
       path="/:shortURL"
