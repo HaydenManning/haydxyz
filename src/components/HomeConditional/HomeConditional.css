@@ -33,4 +33,37 @@
   .nsi-text button {
     margin-top: 5vh;
   }
+
+  #login-signup-btn2 {
+    background: linear-gradient(to right, #37a6ef, #227df6);
+    background-color: #227df6;
+    -webkit-border-top-left-radius: 42px;
+    -moz-border-radius-topleft: 42px;
+    border-top-left-radius: 42px;
+    -webkit-border-top-right-radius: 42px;
+    -moz-border-radius-topright: 42px;
+    border-top-right-radius: 42px;
+    -webkit-border-bottom-right-radius: 42px;
+    -moz-border-radius-bottomright: 42px;
+    border-bottom-right-radius: 42px;
+    -webkit-border-bottom-left-radius: 42px;
+    -moz-border-radius-bottomleft: 42px;
+    border-bottom-left-radius: 42px;
+    display: inline-block;
+    color: #ffffff;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-decoration: none;
+    text-align: center;
+    align-content: center;
+    width: 170px;
+    height: 40px;
+    font-size: 1rem;
+    font-weight: 300;
+  }
+  #login-sign-btn button:hover {
+    cursor: pointer;
+  }
 }

@@ -11,9 +11,9 @@ class HomeConditional extends Component {
       <div className="conditional">
         {this.props.auth_status === false ? (
           <div className="not-signed-in">
-            <div className="nsi-text">
+            <div className="nsi-text" id="login-sign-btn">
               <h1>Manage Links, views stats, and set custom domains.</h1>
-              <button>Login / Signup</button>
+              <button id="login-signup-btn2">Login / Signup</button>
             </div>
             <div className="nsi-cta">
               <img src={require("./../../images/callout.png")} />

@@ -19,7 +19,7 @@
   .short-title h1 {
     margin-bottom: 5vh;
     font-size: 3rem;
-    font-weight: 300;
+    font-weight: 100;
   }
   input[type="url"]::-webkit-input-placeholder {
     font-size: 1.2em;

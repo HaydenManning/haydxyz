@@ -20,13 +20,13 @@ class Header extends Component {
           </Link>
         </div>
         {this.props.auth_status !== true ? (
-          <div className="header-right">
-            <button>Login / Signup</button>
+          <div className="header-right" id="login-sign-btn">
+            <button id="login-signup-btn">Login / Signup</button>
           </div>
         ) : (
           <div className="header-right">
-            <button>Logout</button>
-            <button>Settings</button>
+            <button id="login-signup-btn">Logout</button>
+            <button id="login-signup-btn">Settings</button>
           </div>
         )}
       </div>
