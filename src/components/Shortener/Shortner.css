@@ -9,7 +9,7 @@
     border: 1px solid #b7b7b7;
     -webkit-border-radius: 5em;
     border-radius: 5em;
-    width: 60vw;
+    width: 850px;
   }
   .shortener {
     width: 100%;
@@ -20,5 +20,20 @@
     margin-bottom: 5vh;
     font-size: 3rem;
     font-weight: 300;
+  }
+  input[type="url"]::-webkit-input-placeholder {
+    font-size: 1.2em;
+  }
+  input[type="url"]::-moz-placeholder {
+    font-size: 1.2em;
+  }
+  input[type="url"]::-ms-input-placeholder {
+    font-size: 1.2em;
+  }
+  input[type="url"]::-moz-placeholder {
+    font-size: 1.2em;
+  }
+  input[type="url"] {
+    font-size: 1.2em;
   }
 }
