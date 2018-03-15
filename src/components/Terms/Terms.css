@@ -1,0 +1,19 @@
+@media screen and (min-width: 1200px) {
+  .terms h1 {
+    font-size: 2em;
+    font-weight: 400;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+  }
+
+  .terms p {
+    font-size: 1.2em;
+    font-weight: 300;
+    margin-bottom: 5vh;
+  }
+
+  .terms {
+    margin: 0 auto;
+    width: 700px;
+  }
+}

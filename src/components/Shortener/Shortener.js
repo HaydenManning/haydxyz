@@ -52,7 +52,11 @@ class Shortener extends Component {
               placeholder="Paste your URL"
               type="url"
             />
-            <button onClick={() => this.createNewShort()}>SHORTEN URL</button>
+
+            <i
+              onClick={() => this.createNewShort()}
+              className="fas fa-arrow-alt-circle-right fa-3x"
+            />
           </div>
         </div>
       </div>

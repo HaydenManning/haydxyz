@@ -12,7 +12,8 @@
     width: 850px;
   }
   .shortener {
-    width: 100%;
+    margin: 0 auto;
+    width: 1175px;
     margin-top: 5vh;
     margin-bottom: 20vh;
   }
@@ -35,5 +36,8 @@
   }
   input[type="url"] {
     font-size: 1.2em;
+  }
+  .url-input i {
+    color: #227df6;
   }
 }

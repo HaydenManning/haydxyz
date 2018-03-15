@@ -13,40 +13,25 @@ class UrlRedirect extends Component {
   }
 
   originalUrl() {
+    let loc = window.location.pathname;
+    loc = loc.substring(1);
     axios
-      .get(`http://localhost:3001/api/url/test${window.location.pathname}`)
+      .get(`http://localhost:3001/api/url/${loc}`)
       .then(response => {
         let x = response.data[0].orig_url;
         if (x.startsWith("https://") || x.startsWith("http://")) {
           this.setState({ url: x });
+        } else if (typeof x === "undefined") {
+          return;
         } else {
-          this.setState({
-            url: `https://${x}`
-          });
+          this.setState({ url: `https://${x}` });
         }
         console.log(this.state.url);
       })
       .catch(console.log);
   }
 
-  decodeUrl(str) {
-    const base58 = "gC4cWTpDEwmGoBjqkfbaszAMrFe3PhKLVXxdQY96iR5t1SUNnv7Jy8ZHu2";
-    let decode = 0;
-    while (str) {
-      let index = base58.indexOf(str[0]);
-      let power = str.length - 1;
-      decode += index * Math.pow(base58.length, power);
-      str = str.substring(1);
-    }
-    this.setState({
-      base10: decode
-    });
-    return decode;
-  }
-
   componentDidMount() {
-    // need to set backend/db up for this
-    // this.decodeUrl(window.location.pathname);
     this.originalUrl();
   }
 
@@ -56,7 +41,7 @@ class UrlRedirect extends Component {
         {this.state.url !== "" ? (
           window.location.assign(this.state.url)
         ) : (
-          <h1>{this.state.url}</h1>
+          <h1>ERROR PLEASE TRY AGAIN LATER</h1>
         )}
       </div>
     );
