@@ -1,1 +1,1 @@
-INSERT INTO users (l_name) VALUES ($1);
+UPDATE users set l_name = $1 WHERE uniq_user_id = $2 RETURNING *

@@ -47,7 +47,7 @@ export function lNameInput(e) {
   };
 }
 
-export function emailInput(e) {
+export function emailInputFunc(e) {
   return {
     type: EMAIL_INPUT,
     payload: e
@@ -110,10 +110,9 @@ export function updateFirstName(f_name, id) {
   return {
     type: UPDATE_F_NAME,
     payload: axios
-      .put(`/api/user/${id}`, { f_name })
+      .put(`/api/user/first/${id}`, { f_name })
       .then(res => {
-        console.log(res);
-        return;
+        return res.data[0];
       })
       .catch(console.log)
   };
@@ -123,10 +122,10 @@ export function updateLastName(l_name, id) {
   return {
     type: UPDATE_L_NAME,
     payload: axios
-      .put(`/api/user/${id}`, { l_name })
+      .put(`/api/user/last/${id}`, { l_name })
       .then(res => {
         console.log(res);
-        return;
+        return res.data[0];
       })
       .catch(console.log)
   };
@@ -136,10 +135,9 @@ export function updateEmail(email, id) {
   return {
     type: UPDATE_EMAIL,
     payload: axios
-      .put(`/api/user/${id}`, { email })
+      .put(`/api/user/email/${id}`, { email })
       .then(res => {
-        console.log(res);
-        return;
+        return res.data[0];
       })
       .catch(console.log)
   };
@@ -187,14 +185,14 @@ export default function reducer(state = initialState, action) {
     case `${LOGOUT_USER}_FULFILLED`:
       return Object.assign({}, state, { auth_status: action.payload });
 
-    case UPDATE_F_NAME:
-      return;
+    case `${UPDATE_F_NAME}_FULFILLED`:
+      return Object.assign({}, state, { user: action.payload });
 
-    case UPDATE_L_NAME:
-      return;
+    case `${UPDATE_L_NAME}_FULFILLED`:
+      return Object.assign({}, state, { user: action.payload });
 
-    case UPDATE_EMAIL:
-      return;
+    case `${UPDATE_EMAIL}_FULFILLED`:
+      return Object.assign({}, state, { user: action.payload });
 
     case DELETE_USER_ACCOUNT:
       return Object.assign({}, state, { user: [] });

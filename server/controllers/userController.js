@@ -50,7 +50,7 @@ let deleteUser = (req, res) => {
 let updateUserFirstName = (req, res) => {
   req.app
     .get("db")
-    .updateUserFirstName(req.params.f_name)
+    .updateUserFirstName(req.body.f_name, req.params.id)
     .then(response => {
       res.status(200).json(response);
     })
@@ -62,7 +62,7 @@ let updateUserFirstName = (req, res) => {
 let updateUserLastName = (req, res) => {
   req.app
     .get("db")
-    .updateUserFirstName(req.params.l_name)
+    .updateUserLastName(req.body.l_name, req.params.id)
     .then(response => {
       res.status(200).json(response);
     })
@@ -74,7 +74,7 @@ let updateUserLastName = (req, res) => {
 let updateUserRole = (req, res) => {
   req.app
     .get("db")
-    .updateUserRole(req.params.user_role)
+    .updateUserRole(req.body.user_role)
     .then(response => {
       res.status(200).json(response);
     })
@@ -86,7 +86,7 @@ let updateUserRole = (req, res) => {
 let updateUserEmail = (req, res) => {
   req.app
     .get("db")
-    .updateUserEmail(req.params.email)
+    .updateUserEmail(req.body.email, req.params.id)
     .then(response => {
       res.status(200).json(response);
     })

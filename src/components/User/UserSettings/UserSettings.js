@@ -5,23 +5,60 @@ import { withRouter, Link } from "react-router-dom";
 import {
   fNameInput,
   lNameInput,
-  emailInput,
+  emailInputFunc,
   updateFirstName,
   updateLastName,
   updateEmail,
-  deleteUserAccount
+  deleteUserAccount,
+  getUser
 } from "./../../../ducks/reducer";
 import "./UserSettings.css";
 
 class USettings extends Component {
   updateInfo(val) {
-    //make sure to pass id
     if (val === "f_name") {
-      return;
+      this.props.updateFirstName(
+        this.props.f_nameInput,
+        this.props.user.uniq_user_id
+      );
+      setTimeout(
+        () => (document.getElementById("fname-input").value = ""),
+        250
+      );
     } else if (val === "l_name") {
-      return;
+      this.props.updateLastName(
+        this.props.l_nameInput,
+        this.props.user.uniq_user_id
+      );
+      setTimeout(
+        () => (document.getElementById("lname-input").value = ""),
+        250
+      );
     } else if (val === "email") {
+      this.props.updateEmail(
+        this.props.emailInput,
+        this.props.user.uniq_user_id
+      );
+      setTimeout(
+        () => (document.getElementById("email-input").value = ""),
+        250
+      );
+    } else {
       return;
+    }
+  }
+
+  updateInput(val, e) {
+    console.log(val, e);
+    if (val === "f_name") {
+      this.props.fNameInput(e);
+      console.log(this.props.f_nameInput);
+    } else if (val === "l_name") {
+      this.props.lNameInput(e);
+      console.log(this.props.l_nameInput);
+    } else if (val === "email") {
+      this.props.emailInputFunc(e);
+      console.log(this.props.emailInput, "input");
     } else {
       return;
     }
@@ -32,7 +69,7 @@ class USettings extends Component {
       "Are you sure you want to delete your user account?"
     );
     if (x === true) {
-      return true;
+      this.props.deleteUserAccount();
     } else {
       return;
     }
@@ -58,7 +95,7 @@ class USettings extends Component {
                 </p>
                 <input
                   id="fname-input"
-                  onChange={e => this.props.updateFirstName(e.target.value)}
+                  onChange={e => this.updateInput("f_name", e.target.value)}
                 />
                 <button
                   onClick={() => {
@@ -77,7 +114,7 @@ class USettings extends Component {
                 </p>
                 <input
                   id="lname-input"
-                  onChange={e => this.props.updateLastName(e.target.value)}
+                  onChange={e => this.updateInput("l_name", e.target.value)}
                 />
                 <button
                   onClick={() => {
@@ -96,7 +133,7 @@ class USettings extends Component {
                 </p>
                 <input
                   id="email-input"
-                  onChange={e => this.props.updateEmail(e.target.value)}
+                  onChange={e => this.updateInput("email", e.target.value)}
                 />
                 <button
                   onClick={() => {
@@ -132,16 +169,25 @@ class USettings extends Component {
   }
 }
 
-const mapStateToProps = state => state;
+const mapStateToProps = state => {
+  return {
+    user: state.user,
+    auth_status: state.auth_status,
+    f_nameInput: state.f_nameInput,
+    l_nameInput: state.l_nameInput,
+    emailInput: state.emailInput
+  };
+};
 
 export default withRouter(
   connect(mapStateToProps, {
     fNameInput,
     lNameInput,
-    emailInput,
+    emailInputFunc,
     updateFirstName,
     updateLastName,
     updateEmail,
-    deleteUserAccount
+    deleteUserAccount,
+    getUser
   })(USettings)
 );

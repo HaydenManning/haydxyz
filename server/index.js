@@ -105,6 +105,7 @@ app.get(
   }
 );
 app.get("/api/me", (req, res) => {
+  console.log(req.user);
   if (req.user) {
     res.status(200).json(req.user);
   } else {
@@ -126,10 +127,10 @@ app.get(`/api/user/:id`, getUserByAuthId);
 app.get(`/api/user/`, getAllUsers);
 app.post(`/api/user`, createNewUser);
 app.delete(`/api/user/:id`, deleteUser);
-app.put(`/api/user/:id`, updateUserFirstName);
-app.put(`/api/user/:id`, updateUserLastName);
+app.put(`/api/user/first/:id`, updateUserFirstName);
+app.put(`/api/user/last/:id`, updateUserLastName);
 app.put(`/api/user/permissions/:id`, updateUserRole);
-app.put(`/api/user/:id`, updateUserEmail);
+app.put(`/api/user/email/:id`, updateUserEmail);
 
 /* for production only
 app.get("*", (req, res) => {
