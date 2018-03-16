@@ -97,7 +97,7 @@ passport.deserializeUser((user, done) => done(null, user));
 app.get(
   "/auth",
   passport.authenticate(`auth0`, {
-    failureRedirect: "http://localhost:3002/"
+    failureRedirect: "http://localhost:3002"
   }),
   (req, res) => {
     res.redirect(`http://localhost:3002`);
@@ -112,7 +112,6 @@ app.get("/api/me", (req, res) => {
   }
 });
 app.get("/logout", (req, res) => {
-  console.log("logginout");
   req.session.destroy(() => {
     res.redirect("http://localhost:3002/");
   });

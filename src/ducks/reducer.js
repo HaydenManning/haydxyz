@@ -5,7 +5,10 @@ const initialState = {
   user: [],
   originalUrlInput: "",
   newShort: "",
-  auth_status: false
+  auth_status: false,
+  f_nameInput: "",
+  l_nameInput: "",
+  emailInput: ""
 };
 
 // CONST
@@ -14,11 +17,39 @@ const NEW_SHORT_URL_CREATION = "NEW_SHORT_URL_CREATION";
 const VERIFY_USER = "VERIFY_USER";
 const LOGOUT_USER = "LOGOUT_USER";
 const GET_USER = "GET_USER";
+const UPDATE_F_NAME = "UPDATE_F_NAME";
+const UPDATE_L_NAME = "UPDATE_L_NAME";
+const UPDATE_EMAIL = "UPDATE_EMAIL";
+const DELETE_USER_ACCOUNT = "DELETE_USER_ACCOUNT";
+const F_NAME_INPUT = "F_NAME_INPUT";
+const L_NAME_INPUT = "L_NAME_INPUT";
+const EMAIL_INPUT = "EMAIL_INPUT";
 
 // ACTION CREATORS
 export function originalUrlInputFunc(e) {
   return {
     type: NEW_SHORT_URL_INPUT,
+    payload: e
+  };
+}
+
+export function fNameInput(e) {
+  return {
+    type: F_NAME_INPUT,
+    payload: e
+  };
+}
+
+export function lNameInput(e) {
+  return {
+    type: L_NAME_INPUT,
+    payload: e
+  };
+}
+
+export function emailInput(e) {
+  return {
+    type: EMAIL_INPUT,
     payload: e
   };
 }
@@ -75,11 +106,69 @@ export function logoutUser() {
   };
 }
 
+export function updateFirstName(f_name, id) {
+  return {
+    type: UPDATE_F_NAME,
+    payload: axios
+      .put(`/api/user/${id}`, { f_name })
+      .then(res => {
+        console.log(res);
+        return;
+      })
+      .catch(console.log)
+  };
+}
+
+export function updateLastName(l_name, id) {
+  return {
+    type: UPDATE_L_NAME,
+    payload: axios
+      .put(`/api/user/${id}`, { l_name })
+      .then(res => {
+        console.log(res);
+        return;
+      })
+      .catch(console.log)
+  };
+}
+
+export function updateEmail(email, id) {
+  return {
+    type: UPDATE_EMAIL,
+    payload: axios
+      .put(`/api/user/${id}`, { email })
+      .then(res => {
+        console.log(res);
+        return;
+      })
+      .catch(console.log)
+  };
+}
+
+export function deleteUserAccount(id) {
+  return {
+    type: DELETE_USER_ACCOUNT,
+    payload: axios
+      .delete(`/api/user/${id}`)
+      .then(res => res)
+      .catch(console.log)
+  };
+}
+
 // EXPORT DEFAULT
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case NEW_SHORT_URL_INPUT:
       return Object.assign({}, state, { originalUrlInput: action.payload });
+
+    case F_NAME_INPUT:
+      return Object.assign({}, state, { f_nameInput: action.payload });
+
+    case L_NAME_INPUT:
+      return Object.assign({}, state, { l_nameInput: action.payload });
+
+    case EMAIL_INPUT:
+      return Object.assign({}, state, { emailInput: action.payload });
 
     case `${NEW_SHORT_URL_CREATION}_PENDING`:
       return;
@@ -97,6 +186,18 @@ export default function reducer(state = initialState, action) {
 
     case `${LOGOUT_USER}_FULFILLED`:
       return Object.assign({}, state, { auth_status: action.payload });
+
+    case UPDATE_F_NAME:
+      return;
+
+    case UPDATE_L_NAME:
+      return;
+
+    case UPDATE_EMAIL:
+      return;
+
+    case DELETE_USER_ACCOUNT:
+      return Object.assign({}, state, { user: [] });
 
     default:
       return state;
