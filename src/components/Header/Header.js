@@ -2,10 +2,16 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter, Link } from "react-router-dom";
+
+import { verifyUser } from "./../../ducks/reducer";
 import "./Header.css";
 
 class Header extends Component {
+  componentDidMount() {
+    this.props.verifyUser();
+  }
   render() {
+    console.log(this.props.auth_status);
     return (
       <div className="header-main">
         <div className="header-left">
@@ -21,7 +27,9 @@ class Header extends Component {
         </div>
         {this.props.auth_status !== true ? (
           <div className="header-right" id="login-sign-btn">
-            <button id="login-signup-btn">Login / Signup</button>
+            <a href="http://localhost:3001/auth">
+              <button id="login-signup-btn">Login / Signup</button>
+            </a>
           </div>
         ) : (
           <div className="header-right">
@@ -36,4 +44,4 @@ class Header extends Component {
 
 const mapStateToProps = state => state;
 
-export default withRouter(connect(mapStateToProps)(Header));
+export default withRouter(connect(mapStateToProps, { verifyUser })(Header));

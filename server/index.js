@@ -69,17 +69,21 @@ passport.use(
       callbackURL: "/auth"
     },
     (accessToken, refreshToken, extraParams, profile, done) => {
-      console.log(profile);
       app
         .get("db")
         .getUserByAuthId(profile.id)
         .then(response => {
+          console.log(response);
           if (!response[0]) {
             app
               .get("db")
-              .createUserByAuthId(profile.id)
+              .createNewUser(
+                profile.id,
+                profile.name.givenName,
+                profile.name.familyName
+              )
               .then(created => done(null, created[0]));
-            return "User does not have Permission";
+            console.log(created);
           } else {
             return done(null, response[0]);
           }
@@ -93,14 +97,14 @@ passport.deserializeUser((user, done) => done(null, user));
 app.get(
   "/auth",
   passport.authenticate(`auth0`, {
-    failureRedirect: "http://localhost:3002/auth"
+    failureRedirect: "http://localhost:3002/"
   }),
   (req, res) => {
-    res.redirect(`http://localhost:3002/`);
+    res.redirect(`http://localhost:3002`);
+    console.log(req.user);
   }
 );
 app.get("/api/me", (req, res) => {
-  console.log(req);
   if (req.user) {
     res.status(200).json(req.user);
   } else {

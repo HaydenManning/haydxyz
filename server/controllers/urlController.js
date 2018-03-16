@@ -22,7 +22,6 @@ let createShortUrl = (req, res) => {
 };
 
 let getShortUrl = (req, res) => {
-  console.log("hgelljojojoajogjsd");
   req.app
     .get("db")
     .getShortUrl(req.params.id)
