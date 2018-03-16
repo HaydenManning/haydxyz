@@ -5,6 +5,22 @@ import { withRouter, Link } from "react-router-dom";
 // IF AUTH_STATUS === FALSE RENDER LOGIN BUTTON ELSE RENDER NORMAL
 
 class USettings extends Component {
+  updateInfo(val) {
+    if (val === "f_name") {
+      return;
+    } else if (val === "l_name") {
+      return;
+    } else if (val === "email") {
+      return;
+    } else {
+      return;
+    }
+  }
+
+  deleteAcc() {
+    //delete account
+    return;
+  }
   render() {
     return (
       <div className="settings-wrap">
@@ -24,7 +40,13 @@ class USettings extends Component {
                   : "No first name on record."}
               </p>
               <input />
-              <button>SUBMIT</button>
+              <button
+                onClick={() => {
+                  this.updateInfo("f_name");
+                }}
+              >
+                SUBMIT
+              </button>
             </div>
             <div className="user-info">
               <h2>Update Last Name</h2>
@@ -34,7 +56,13 @@ class USettings extends Component {
                   : "No last name on record."}
               </p>
               <input />
-              <button>SUBMIT</button>
+              <button
+                onClick={() => {
+                  this.updateInfo("l_name");
+                }}
+              >
+                SUBMIT
+              </button>
             </div>
             <div className="user-info">
               <h2>Update Email</h2>
@@ -44,7 +72,13 @@ class USettings extends Component {
                   : "No email on record, input one below."}
               </p>
               <input />
-              <button>SUBMIT</button>
+              <button
+                onClick={() => {
+                  this.updateInfo("email");
+                }}
+              >
+                SUBMIT
+              </button>
             </div>
           </div>
           <div className="delete-user">
@@ -54,7 +88,14 @@ class USettings extends Component {
               information. However any links that you have created will still be
               active and available to any with the link.
             </p>
-            <button id="delete-user-btn">DELETE ACCOUNT</button>
+            <button
+              id="delete-user-btn"
+              onClick={() => {
+                this.deleteAcc();
+              }}
+            >
+              DELETE ACCOUNT
+            </button>
           </div>
         </div>
       </div>

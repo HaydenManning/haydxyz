@@ -1,1 +1,1 @@
-INSERT INTO url (short_url, orig_url) VALUES ($1, $2);
+INSERT INTO url (short_url, orig_url, author, created) VALUES ($1, $2, $3, current_date);

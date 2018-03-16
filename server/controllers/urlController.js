@@ -9,7 +9,11 @@ let createShortUrl = (req, res) => {
       let url = numToStr(base10 + 1);
       req.app
         .get("db")
-        .createShortUrl(url, req.body.original)
+        .createShortUrl(
+          url,
+          req.body.original,
+          !req.user ? null : req.user.uniq_user_id
+        )
         .then(response => {
           console.log(url, "created");
           res.status(200).json({ response, short_url: url });
