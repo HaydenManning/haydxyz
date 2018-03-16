@@ -9,7 +9,7 @@ class HomeConditional extends Component {
   render() {
     return (
       <div className="conditional">
-        {this.props.auth_status === false ? (
+        {this.props.auth_status !== true ? (
           <div className="not-signed-in">
             <div className="nsi-text" id="login-sign-btn">
               <h1>Manage Links, views stats, and set custom domains.</h1>

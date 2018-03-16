@@ -5,7 +5,7 @@ import { withRouter, Link } from "react-router-dom";
 
 import { verifyUser } from "./../../ducks/reducer";
 import "./Header.css";
-
+//
 class Header extends Component {
   componentDidMount() {
     this.props.verifyUser();
