@@ -3,13 +3,21 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter, Link } from "react-router-dom";
 
-import { verifyUser } from "./../../ducks/reducer";
+import { verifyUser, logoutUser, getUser } from "./../../ducks/reducer";
 import "./Header.css";
 //
 class Header extends Component {
   componentDidMount() {
     this.props.verifyUser();
+    this.props.getUser();
+    console.log(this.props.user);
   }
+
+  logout() {
+    console.log(this.props.user);
+    this.props.logoutUser();
+  }
+
   render() {
     console.log(this.props.auth_status);
     return (
@@ -33,8 +41,16 @@ class Header extends Component {
           </div>
         ) : (
           <div className="header-right">
-            <button id="login-signup-btn">Logout</button>
-            <button id="login-signup-btn">Settings</button>
+            <button
+              className="margin-r"
+              id="login-signup-btn-2"
+              onClick={() => this.logout()}
+            >
+              Logout
+            </button>
+            <Link to="/u/settings">
+              <button id="login-signup-btn-2">Settings</button>
+            </Link>
           </div>
         )}
       </div>
@@ -44,4 +60,6 @@ class Header extends Component {
 
 const mapStateToProps = state => state;
 
-export default withRouter(connect(mapStateToProps, { verifyUser })(Header));
+export default withRouter(
+  connect(mapStateToProps, { verifyUser, logoutUser, getUser })(Header)
+);

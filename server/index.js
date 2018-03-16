@@ -112,6 +112,7 @@ app.get("/api/me", (req, res) => {
   }
 });
 app.get("/logout", (req, res) => {
+  console.log("logginout");
   req.session.destroy(() => {
     res.redirect("http://localhost:3002/");
   });

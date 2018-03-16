@@ -12,6 +12,7 @@ const initialState = {
 const NEW_SHORT_URL_INPUT = "NEW_SHORT_URL_INPUT";
 const NEW_SHORT_URL_CREATION = "NEW_SHORT_URL_CREATION";
 const VERIFY_USER = "VERIFY_USER";
+const LOGOUT_USER = "LOGOUT_USER";
 const GET_USER = "GET_USER";
 
 // ACTION CREATORS
@@ -59,7 +60,17 @@ export function getUser() {
   return {
     type: GET_USER,
     payload: axios.get("/api/me").then(res => {
+      console.log(res);
       return res.data;
+    })
+  };
+}
+
+export function logoutUser() {
+  return {
+    type: LOGOUT_USER,
+    payload: axios.request("/logout").then(res => {
+      return false;
     })
   };
 }
@@ -69,6 +80,9 @@ export default function reducer(state = initialState, action) {
   switch (action.type) {
     case NEW_SHORT_URL_INPUT:
       return Object.assign({}, state, { originalUrlInput: action.payload });
+
+    case `${NEW_SHORT_URL_CREATION}_PENDING`:
+      return;
 
     case `${NEW_SHORT_URL_CREATION}_FULFILLED`:
       console.log(action.payload, "PAYLOAD");
@@ -80,6 +94,9 @@ export default function reducer(state = initialState, action) {
 
     case `${GET_USER}_FULFILLED`:
       return Object.assign({}, state, { user: action.payload });
+
+    case `${LOGOUT_USER}_FULFILLED`:
+      return Object.assign({}, state, { auth_status: action.payload });
 
     default:
       return state;
