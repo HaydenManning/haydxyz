@@ -69,7 +69,9 @@ class USettings extends Component {
       "Are you sure you want to delete your user account?"
     );
     if (x === true) {
-      this.props.deleteUserAccount();
+      this.props.deleteUserAccount(this.props.user.uniq_user_id).then(() => {
+        this.props.history.push("/");
+      });
     } else {
       return;
     }

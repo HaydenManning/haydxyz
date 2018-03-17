@@ -5,6 +5,7 @@ let createShortUrl = (req, res) => {
     .get("db")
     .getBaseTen()
     .then(id => {
+      console.log(id);
       let base10 = id[0].uniq_id || 0;
       let url = numToStr(base10 + 1);
       req.app
@@ -40,7 +41,7 @@ let getShortUrl = (req, res) => {
 let getAllUrl = (req, res) => {
   req.app
     .get("db")
-    .getAllUrl()
+    .getAllUrl(req.params.id)
     .then(response => {
       res.status(200).json(response);
     })

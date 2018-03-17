@@ -1,1 +1,1 @@
-SELECT * FROM url
+SELECT * FROM url WHERE author = $1

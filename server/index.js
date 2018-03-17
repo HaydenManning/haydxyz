@@ -119,7 +119,7 @@ app.get("/logout", (req, res) => {
 });
 
 app.get(`/api/url/:id`, getShortUrl);
-app.get(`/api/url/`, getAllUrl);
+app.get(`/api/url/all/:id`, getAllUrl);
 app.post(`/api/url`, createShortUrl);
 app.delete(`/api/url/:id`, deleteShortUrl);
 

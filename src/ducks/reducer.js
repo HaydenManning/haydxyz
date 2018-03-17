@@ -8,7 +8,8 @@ const initialState = {
   auth_status: false,
   f_nameInput: "",
   l_nameInput: "",
-  emailInput: ""
+  emailInput: "",
+  usersUrl: []
 };
 
 // CONST
@@ -24,6 +25,7 @@ const DELETE_USER_ACCOUNT = "DELETE_USER_ACCOUNT";
 const F_NAME_INPUT = "F_NAME_INPUT";
 const L_NAME_INPUT = "L_NAME_INPUT";
 const EMAIL_INPUT = "EMAIL_INPUT";
+const GET_USER_URL = "GET_USER_URL";
 
 // ACTION CREATORS
 export function originalUrlInputFunc(e) {
@@ -143,11 +145,11 @@ export function updateEmail(email, id) {
   };
 }
 
-export function deleteUserAccount(id) {
+export function deleteUserAccount(uniq_user_id) {
   return {
     type: DELETE_USER_ACCOUNT,
     payload: axios
-      .delete(`/api/user/${id}`)
+      .delete(`/api/user/${uniq_user_id}`)
       .then(res => res)
       .catch(console.log)
   };
@@ -167,9 +169,6 @@ export default function reducer(state = initialState, action) {
 
     case EMAIL_INPUT:
       return Object.assign({}, state, { emailInput: action.payload });
-
-    case `${NEW_SHORT_URL_CREATION}_PENDING`:
-      return;
 
     case `${NEW_SHORT_URL_CREATION}_FULFILLED`:
       console.log(action.payload, "PAYLOAD");

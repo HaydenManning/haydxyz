@@ -8,6 +8,7 @@ import "./Header.css";
 //
 class Header extends Component {
   componentDidMount() {
+    console.log("You're Fired");
     this.props.verifyUser();
     this.props.getUser();
     console.log(this.props.user);

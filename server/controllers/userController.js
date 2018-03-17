@@ -38,9 +38,12 @@ let createNewUser = (req, res) => {
 let deleteUser = (req, res) => {
   req.app
     .get("db")
-    .deleteUser(req.params.auth_id)
+    .deleteUser(req.params.id)
     .then(response => {
+      console.log("deleting user");
+      console.log(response, "delete");
       res.status(200).json(response);
+      req.session.destroy();
     })
     .catch(err => {
       res.status(500).json(err);
