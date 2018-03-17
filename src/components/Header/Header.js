@@ -3,14 +3,21 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter, Link } from "react-router-dom";
 
-import { verifyUser, logoutUser, getUser } from "./../../ducks/reducer";
+import {
+  verifyUser,
+  logoutUser,
+  getUser,
+  getAllUserUrl
+} from "./../../ducks/reducer";
 import "./Header.css";
 //
 class Header extends Component {
   componentDidMount() {
     console.log("You're Fired");
     this.props.verifyUser();
-    this.props.getUser();
+    this.props
+      .getUser()
+      .then(() => this.props.getAllUserUrl(this.props.user.uniq_user_id));
     console.log(this.props.user);
   }
 
@@ -62,5 +69,7 @@ class Header extends Component {
 const mapStateToProps = state => state;
 
 export default withRouter(
-  connect(mapStateToProps, { verifyUser, logoutUser, getUser })(Header)
+  connect(mapStateToProps, { verifyUser, logoutUser, getUser, getAllUserUrl })(
+    Header
+  )
 );

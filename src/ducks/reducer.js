@@ -9,7 +9,7 @@ const initialState = {
   f_nameInput: "",
   l_nameInput: "",
   emailInput: "",
-  usersUrl: []
+  usersUrl: undefined
 };
 
 // CONST
@@ -155,6 +155,16 @@ export function deleteUserAccount(uniq_user_id) {
   };
 }
 
+export function getAllUserUrl(id) {
+  return {
+    type: GET_USER_URL,
+    payload: axios
+      .get(`/api/url/all/${id}`)
+      .then(res => res.data)
+      .catch(console.log)
+  };
+}
+
 // EXPORT DEFAULT
 export default function reducer(state = initialState, action) {
   switch (action.type) {
@@ -195,6 +205,9 @@ export default function reducer(state = initialState, action) {
 
     case DELETE_USER_ACCOUNT:
       return Object.assign({}, state, { user: [] });
+
+    case `${GET_USER_URL}_FULFILLED`:
+      return Object.assign({}, state, { usersUrl: action.payload });
 
     default:
       return state;
