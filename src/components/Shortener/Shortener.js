@@ -34,7 +34,7 @@ class Shortener extends Component {
     if (this.state.valid === false) {
       shortTitle = <h1>Please enter a valid URL</h1>;
     } else if (this.props.newShort !== "") {
-      shortTitle = <h1>http://hdn.mx/{this.props.newShort}</h1>;
+      shortTitle = <h1>https://hdn.mx/{this.props.newShort}</h1>;
     } else if (
       this.props.newShort === "" ||
       this.props.originalUrlInput === ""

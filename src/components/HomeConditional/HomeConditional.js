@@ -44,7 +44,7 @@ class HomeConditional extends Component {
                           </a>
                           <p>{this.props.usersUrl[i].created}</p>
                           <a href={this.props.usersUrl[i].orig_url}>
-                            <p>{`http://hdn.mx/${
+                            <p>{`https://hdn.mx/${
                               this.props.usersUrl[i].short_url
                             }`}</p>
                           </a>
