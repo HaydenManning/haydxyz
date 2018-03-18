@@ -43,7 +43,7 @@ class Header extends Component {
         </div>
         {this.props.auth_status !== true ? (
           <div className="header-right" id="login-sign-btn">
-            <a href="http://localhost:3001/auth">
+            <a href="http://hdn.mx/auth">
               <button id="login-signup-btn">Login / Signup</button>
             </a>
           </div>

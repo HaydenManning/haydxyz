@@ -16,7 +16,7 @@ class UrlRedirect extends Component {
     let loc = window.location.pathname;
     loc = loc.substring(1);
     axios
-      .get(`http://localhost:3001/api/url/${loc}`)
+      .get(`http://hdn.mx/api/url/${loc}`)
       .then(response => {
         let x = response.data[0].orig_url;
         if (x.startsWith("https://") || x.startsWith("http://")) {

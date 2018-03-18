@@ -40,6 +40,8 @@ const {
 
 const app = express();
 
+// serving production files
+app.use(express.static(`${__dirname}/../build/`));
 massive(CONNECTION_STRING)
   .then(db => {
     app.set("db", db);
@@ -49,8 +51,6 @@ massive(CONNECTION_STRING)
 app.use(json());
 app.use(cors());
 configureRoutes(app);
-// serving production files
-// app.use(express.static(`${__dirname}/../build/`));
 
 app.use(
   session({
@@ -104,10 +104,10 @@ passport.deserializeUser((user, done) => done(null, user));
 app.get(
   "/auth",
   passport.authenticate(`auth0`, {
-    failureRedirect: "http://localhost:3002"
+    failureRedirect: "http://hdn.mx"
   }),
   (req, res) => {
-    res.redirect(`http://localhost:3002`);
+    res.redirect(`http://hdn.mx`);
     console.log(req.user);
   }
 );
@@ -121,7 +121,7 @@ app.get("/api/me", (req, res) => {
 });
 app.get("/logout", (req, res) => {
   req.session.destroy(() => {
-    res.redirect("http://localhost:3002/");
+    res.redirect("http://hdn.mx/");
   });
 });
 
@@ -141,10 +141,10 @@ app.put(`/api/user/email/:id`, updateUserEmail);
 
 // STRIPE
 
-/* for production only
+// for production only
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../build/index.html"));
-}); */
+});
 
 app.listen(PORT, () => {
   console.log(`Listening on port: ${PORT}`);
