@@ -27,7 +27,6 @@ class UrlRedirect extends Component {
           this.setState({ url: `https://${x}` });
         }
         console.log(this.state.url);
-        window.location = this.state.url;
       })
       .catch(console.log);
   }
@@ -39,7 +38,11 @@ class UrlRedirect extends Component {
   render() {
     return (
       <div>
-        <h1>Redirecting...</h1>
+        {this.state.url !== "" ? (
+          window.location.assign(this.state.url)
+        ) : (
+          <h1>ERROR PLEASE TRY AGAIN LATER</h1>
+        )}
       </div>
     );
   }
