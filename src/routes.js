@@ -10,7 +10,6 @@ import Stats from "./pages/Stats";
 import Four04 from "./pages/Four04";
 import Reports from "./pages/Report";
 
-// <Route path="/i/give" component={Donate} />
 //     <Route path="/s/:id" component={Stats} />
 
 export default (
@@ -18,6 +17,7 @@ export default (
     <Route exact path="/" component={Homepage} />
     <Route path="/u/settings" component={UserSettings} />
     <Route path="/i/tos" component={TermsOfService} />
+    <Route path="/i/give" component={Donate} />
     <Route path="/i/report" component={Reports} />
     <Route // THIS ROUTE MUST BE ON BOTTOM
       sensitive

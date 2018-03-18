@@ -34,7 +34,7 @@ class HomeConditional extends Component {
                 <h2>Short URL</h2>
                 <h2>Auth ID</h2>
               </div>
-              <div className="table-row">
+              <div className="table-row-content">
                 {this.props.usersUrl != undefined
                   ? this.props.usersUrl.map((obj, i) => {
                       return (

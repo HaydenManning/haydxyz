@@ -32,6 +32,12 @@ const {
   updateUserEmail
 } = require(`${__dirname}/controllers/userController`);
 
+const {
+  stripe,
+  paymentApi,
+  configureRoutes
+} = require(`${__dirname}/controllers/stripeController`);
+
 const app = express();
 
 massive(CONNECTION_STRING)
@@ -42,6 +48,7 @@ massive(CONNECTION_STRING)
 
 app.use(json());
 app.use(cors());
+configureRoutes(app);
 // serving production files
 // app.use(express.static(`${__dirname}/../build/`));
 
@@ -131,6 +138,8 @@ app.put(`/api/user/first/:id`, updateUserFirstName);
 app.put(`/api/user/last/:id`, updateUserLastName);
 app.put(`/api/user/permissions/:id`, updateUserRole);
 app.put(`/api/user/email/:id`, updateUserEmail);
+
+// STRIPE
 
 /* for production only
 app.get("*", (req, res) => {
