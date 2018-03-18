@@ -27,7 +27,7 @@ class UrlRedirect extends Component {
           this.setState({ url: `https://${x}` });
         }
         console.log(this.state.url);
-        window.location.href = this.state.url;
+        window.location.replace(this.state.url);
       })
       .catch(console.log);
   }
