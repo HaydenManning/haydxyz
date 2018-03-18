@@ -39,11 +39,23 @@ class HomeConditional extends Component {
                   ? this.props.usersUrl.map((obj, i) => {
                       return (
                         <div className="table-row">
-                          <a href={this.props.usersUrl[i].orig_url}>
+                          <a
+                            href={
+                              this.props.usersUrl[i].orig_url.startsWith("http")
+                                ? this.props.usersUrl[i].orig_url
+                                : `https://${this.props.usersUrl[i].orig_url}`
+                            }
+                          >
                             <p>{this.props.usersUrl[i].orig_url}</p>
                           </a>
                           <p>{this.props.usersUrl[i].created}</p>
-                          <a href={this.props.usersUrl[i].orig_url}>
+                          <a
+                            href={
+                              this.props.usersUrl[i].orig_url.startsWith("http")
+                                ? this.props.usersUrl[i].orig_url
+                                : `https://${this.props.usersUrl[i].orig_url}`
+                            }
+                          >
                             <p>{`https://hdn.mx/${
                               this.props.usersUrl[i].short_url
                             }`}</p>
