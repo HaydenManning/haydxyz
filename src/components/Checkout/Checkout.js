@@ -3,7 +3,7 @@ import axios from "axios";
 import StripeCheckout from "react-stripe-checkout";
 
 const STRIPE_PUBLISHABLE = "pk_test_KPBImuvaHNRIQx4aYLoa8SkS";
-const PAYMENT_SERVER_URL = "http://hdn.mx";
+const PAYMENT_SERVER_URL = "http://localhost:3001";
 const CURRENCY = "USD";
 
 const fromUsdToCent = amount => amount * 100;
