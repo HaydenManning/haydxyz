@@ -19,7 +19,7 @@ const paymentApi = app => {
     });
   });
 
-  app.post("/", (req, res) => {
+  app.post("/pay", (req, res) => {
     stripe.charges.create(req.body, postStripeCharge(res));
   });
 
