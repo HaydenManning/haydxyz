@@ -1,3 +1,7 @@
+This project was built during my time at DevMountain between weeks 6 - 8. In this project I wanted to display design ability with strong understanding for the back-end. This project is no longer hosted. 
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
